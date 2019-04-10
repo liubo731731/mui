@@ -1,0 +1,320 @@
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>新能源生产运营中心集控运维系统</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta http-equiv="Expires" content="0">
+		<meta http-equiv="Pragma" content="no-cache">
+		<meta http-equiv="Cache-control" content="no-cache">
+		<meta http-equiv="Cache" content="no-cache">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="./css/mui.min.css">
+		<!--App自定义的css-->
+		<style type="text/css">
+			p{
+				color:black;
+			}
+			h5{
+				font-size:14px;	
+				font-weight: bold;
+				color:black;
+			}
+			
+			.mui-preview-image.mui-fullscreen {
+				position: fixed;
+				z-index: 20;
+				background-color: #000;
+			}
+
+			.mui-preview-header,
+			.mui-preview-footer {
+				position: absolute;
+				width: 100%;
+				left: 0;
+				z-index: 10;
+			}
+
+			.mui-preview-header {
+				height: 44px;
+				top: 0;
+			}
+
+			.mui-preview-footer {
+				height: 50px;
+				bottom: 0px;
+			}
+
+			.mui-preview-header .mui-preview-indicator {
+				display: block;
+				line-height: 25px;
+				color: #fff;
+				text-align: center;
+				margin: 15px auto 4;
+				width: 70px;
+				background-color: rgba(0, 0, 0, 0.4);
+				border-radius: 12px;
+				font-size: 16px;
+			}
+
+			.mui-preview-image {
+				display: none;
+				-webkit-animation-duration: 0.5s;
+				animation-duration: 0.5s;
+				-webkit-animation-fill-mode: both;
+				animation-fill-mode: both;
+			}
+
+			.mui-preview-image.mui-preview-in {
+				-webkit-animation-name: fadeIn;
+				animation-name: fadeIn;
+			}
+
+			.mui-preview-image.mui-preview-out {
+				background: none;
+				-webkit-animation-name: fadeOut;
+				animation-name: fadeOut;
+			}
+
+			.mui-preview-image.mui-preview-out .mui-preview-header,
+			.mui-preview-image.mui-preview-out .mui-preview-footer {
+				display: none;
+			}
+
+			.mui-zoom-scroller {
+				position: absolute;
+				display: -webkit-box;
+				display: -webkit-flex;
+				display: flex;
+				-webkit-box-align: center;
+				-webkit-align-items: center;
+				align-items: center;
+				-webkit-box-pack: center;
+				-webkit-justify-content: center;
+				justify-content: center;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				margin: 0;
+				-webkit-backface-visibility: hidden;
+			}
+
+			.mui-zoom {
+				-webkit-transform-style: preserve-3d;
+				transform-style: preserve-3d;
+			}
+
+			.mui-slider .mui-slider-group .mui-slider-item img {
+				width: auto;
+				height: auto;
+				max-width: 100%;
+				max-height: 100%;
+			}
+
+			.mui-android-4-1 .mui-slider .mui-slider-group .mui-slider-item img {
+				width: 100%;
+			}
+
+			.mui-android-4-1 .mui-slider.mui-preview-image .mui-slider-group .mui-slider-item {
+				display: inline-table;
+			}
+
+			.mui-android-4-1 .mui-slider.mui-preview-image .mui-zoom-scroller img {
+				display: table-cell;
+				vertical-align: middle;
+			}
+
+			.mui-preview-loading {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				top: 0;
+				left: 0;
+				display: none;
+			}
+
+			.mui-preview-loading.mui-active {
+				display: block;
+			}
+
+			.mui-preview-loading .mui-spinner-white {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				margin-left: -25px;
+				margin-top: -25px;
+				height: 50px;
+				width: 50px;
+			}
+
+			.mui-preview-image img.mui-transitioning {
+				-webkit-transition: -webkit-transform 0.5s ease, opacity 0.5s ease;
+				transition: transform 0.5s ease, opacity 0.5s ease;
+			}
+
+			@-webkit-keyframes fadeIn {
+				0% {
+					opacity: 0;
+				}
+
+				100% {
+					opacity: 1;
+				}
+			}
+
+			@keyframes fadeIn {
+				0% {
+					opacity: 0;
+				}
+
+				100% {
+					opacity: 1;
+				}
+			}
+
+			@-webkit-keyframes fadeOut {
+				0% {
+					opacity: 1;
+				}
+
+				100% {
+					opacity: 0;
+				}
+			}
+
+			@keyframes fadeOut {
+				0% {
+					opacity: 1;
+				}
+
+				100% {
+					opacity: 0;
+				}
+			}
+
+			p img {
+				max-width: 100%!important;
+				height: auto;
+			}
+		</style>
+
+	</head>
+
+	<body>
+		<div class="mui-content">
+			<div class="mui-content-padded">
+				<p><h5 style="font-size:15px">新能源生产运营中心集控运维系统</h5></p>
+				<p style="width:100%;text-align:right">2018-07-11电站事业部</p>
+
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;四方股份新能源生产运营中心集控运维系统通过KPI指标监控分析和设备能效评估，实时掌控关键设备和电站运行状态，通过设备预警和智能告警功能，实现主动运维，快速定位故障，识别落后发电单元和设备，并提供便捷的移动端随时随地获取实时信息，实现新能源公司优化发电效率、按需运维及实现无人值守为目标。</p>
+				<p>
+				 <img src="./images/five/image001.png" style="max-width:100%" data-preview-src="" data-preview-group="1" />	
+				</p>
+			    <br>
+				<p><h5>全景监控，指标引领，主动运维</h5></p>
+			    <p>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;所辖场站的电站全量数据可视化、可管理化、可分析化。提供远程集中监控及关键运维功能，电站KPI、功率控制、功率预测、风机振动、电能质量、关键设备监测都纳入到监控大屏和全景监控。<br>			
+				</p>
+				<p>
+				<img src="./images/five/image003.jpg" style="max-width:100%" data-preview-src="" data-preview-group="1" />		
+				</p>
+				<br>
+				<p><h5>无人值守，I区定制，一键启停</h5></p>
+				<p>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                 I区首页按需增加累计上网、日上网、日最大功率、当日功率，利用小时等实时对比信息，帮助监控各站运行效益。各电站主接线画面增加了箱变低压断路器一键分合，逆变器  一键启停等功能，降低重复操作和人为失误率，提高安全。<br></p>
+				<p>
+				<img src="./images/five/image005.png" style="max-width:100%" data-preview-src="" data-preview-group="1" />		
+				</p>
+				<p>
+				<img src="./images/five/image007.png" style="max-width:100%" data-preview-src="" data-preview-group="1" />		
+				</p>
+				<br>
+			    <p><h5>大数据挖掘，风险评估，生产效益潜能提升</h5></p>
+				<p>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                 通过对电站发电、故障、效率、损耗等统计分析和横/纵向对比，时刻掌握电站和设备运行状况，设备故障预警和检修计划，促进运维效率和收益提升<br></p>				
+				 <p>
+				<img src="./images/five/image009.png" style="max-width:100%" data-preview-src="" data-preview-group="1" />		
+				</p>
+				 <p>
+				<img src="./images/five/image011.jpg" style="max-width:100%" data-preview-src="" data-preview-group="1" />		
+				</p>
+				<br>
+				<p><h5>按需监控，故障和告警精准定位，精细化到光伏组串</h5></p>
+				<p>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				 通过对电站发电、故障、效率、损耗等统计分析和横/纵向对比，时刻掌握电站和设备运行状况，设备故障预警和检修计划，促进运维效率和收益提升<br></p>				
+				 <p>
+				<img src="./images/five/image013.jpg" style="max-width:100%" data-preview-src="" data-preview-group="1" />		
+				</p>
+				 <p>
+				<img src="./images/five/image015.jpg" style="max-width:100%" data-preview-src="" data-preview-group="1" />		
+				</p>
+				<br>
+				<p><h5>离散分析，故障预警 </h5></p>
+				<p>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				 通过对电站发电、故障、效率、损耗等统计分析和横/纵向对比，时刻掌握电站和设备运行状况，设备故障预警和检修计划，促进运维效率和收益提升<br></p>				
+				 <p>
+				<img src="./images/five/image017.png" style="max-width:100%" data-preview-src="" data-preview-group="1" />		
+				</p>
+				 <p>
+				<img src="./images/five/image019.png" style="max-width:100%" data-preview-src="" data-preview-group="1" />		
+				</p>
+				<br>
+				<p><h5>多样化报表，支持用户自定义和二次编辑</h5></p>
+				<p>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				 通过对电站发电、故障、效率、损耗等统计分析和横/纵向对比，时刻掌握电站和设备运行状况，设备故障预警和检修计划，促进运维效率和收益提升<br></p>				
+				 <p>
+				<img src="./images/five/image021.png" style="max-width:100%" data-preview-src="" data-preview-group="1" />		
+				</p>
+				 <p>
+				<img src="./images/five/image023.png" style="max-width:100%" data-preview-src="" data-preview-group="1" />		
+				</p>
+				<br>
+				<p><h5>电子工单，移动运维</h5></p>
+				<p>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				 通过对电站发电、故障、效率、损耗等统计分析和横/纵向对比，时刻掌握电站和设备运行状况，设备故障预警和检修计划，促进运维效率和收益提升<br></p>				
+				 <p>
+				<img src="./images/five/image025.png" style="max-width:100%" data-preview-src="" data-preview-group="1" />		
+				</p>
+				<br>
+				<p><h5>工程应用</h5></p>
+				<p>
+				<img src="./images/five/image027.jpg" style="max-width:100%" data-preview-src="" data-preview-group="1" />		
+				</p>
+				<p>
+				<img src="./images/five/image030.jpg" style="max-width:100%" data-preview-src="" data-preview-group="1" />		
+				</p>
+				<br>
+				<h4 style="text-align:center;color:royalblue">					
+					★创新铸就四方，梦想点亮未来★<br><br>
+					★Innovation Lights Our Future★ 
+				</h4>
+				<br>
+				<p style="text-align:center;font-weight:bold">
+				四方股份为您提供优质的解决方案
+				</p>	
+				<p style="text-align:center;font-weight:bold">
+				如有任何问题，请与我们联系<br>	
+				邮箱：qianhuadong@sf-auto.com<br>电话：18515512616
+				</p>
+			</div>
+		</div>
+	</body>
+	<script src="./js/mui.min.js"></script>
+	<script src="./js/mui.zoom.js"></script>
+	<script src="./js/mui.previewimage.js"></script>
+	<script>
+		mui.previewImage();
+	</script>
+
+</html>

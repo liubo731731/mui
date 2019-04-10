@@ -1,0 +1,304 @@
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>VR/AR技术在变电站的应用</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta http-equiv="Expires" content="0">
+		<meta http-equiv="Pragma" content="no-cache">
+		<meta http-equiv="Cache-control" content="no-cache">
+		<meta http-equiv="Cache" content="no-cache">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="./css/mui.min.css">
+		<!--App自定义的css-->
+		<style type="text/css">
+			p {
+				color: black;
+			}
+
+			h5 {
+				font-size: 14px;
+				font-weight: bold;
+				color: black;
+			}
+
+			.mui-preview-image.mui-fullscreen {
+				position: fixed;
+				z-index: 20;
+				background-color: #000;
+			}
+
+			.mui-preview-header,
+			.mui-preview-footer {
+				position: absolute;
+				width: 100%;
+				left: 0;
+				z-index: 10;
+			}
+
+			.mui-preview-header {
+				height: 44px;
+				top: 0;
+			}
+
+			.mui-preview-footer {
+				height: 50px;
+				bottom: 0px;
+			}
+
+			.mui-preview-header .mui-preview-indicator {
+				display: block;
+				line-height: 25px;
+				color: #fff;
+				text-align: center;
+				margin: 15px auto 4;
+				width: 70px;
+				background-color: rgba(0, 0, 0, 0.4);
+				border-radius: 12px;
+				font-size: 16px;
+			}
+
+			.mui-preview-image {
+				display: none;
+				-webkit-animation-duration: 0.5s;
+				animation-duration: 0.5s;
+				-webkit-animation-fill-mode: both;
+				animation-fill-mode: both;
+			}
+
+			.mui-preview-image.mui-preview-in {
+				-webkit-animation-name: fadeIn;
+				animation-name: fadeIn;
+			}
+
+			.mui-preview-image.mui-preview-out {
+				background: none;
+				-webkit-animation-name: fadeOut;
+				animation-name: fadeOut;
+			}
+
+			.mui-preview-image.mui-preview-out .mui-preview-header,
+			.mui-preview-image.mui-preview-out .mui-preview-footer {
+				display: none;
+			}
+
+			.mui-zoom-scroller {
+				position: absolute;
+				display: -webkit-box;
+				display: -webkit-flex;
+				display: flex;
+				-webkit-box-align: center;
+				-webkit-align-items: center;
+				align-items: center;
+				-webkit-box-pack: center;
+				-webkit-justify-content: center;
+				justify-content: center;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				margin: 0;
+				-webkit-backface-visibility: hidden;
+			}
+
+			.mui-zoom {
+				-webkit-transform-style: preserve-3d;
+				transform-style: preserve-3d;
+			}
+
+			.mui-slider .mui-slider-group .mui-slider-item img {
+				width: auto;
+				height: auto;
+				max-width: 100%;
+				max-height: 100%;
+			}
+
+			.mui-android-4-1 .mui-slider .mui-slider-group .mui-slider-item img {
+				width: 100%;
+			}
+
+			.mui-android-4-1 .mui-slider.mui-preview-image .mui-slider-group .mui-slider-item {
+				display: inline-table;
+			}
+
+			.mui-android-4-1 .mui-slider.mui-preview-image .mui-zoom-scroller img {
+				display: table-cell;
+				vertical-align: middle;
+			}
+
+			.mui-preview-loading {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				top: 0;
+				left: 0;
+				display: none;
+			}
+
+			.mui-preview-loading.mui-active {
+				display: block;
+			}
+
+			.mui-preview-loading .mui-spinner-white {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				margin-left: -25px;
+				margin-top: -25px;
+				height: 50px;
+				width: 50px;
+			}
+
+			.mui-preview-image img.mui-transitioning {
+				-webkit-transition: -webkit-transform 0.5s ease, opacity 0.5s ease;
+				transition: transform 0.5s ease, opacity 0.5s ease;
+			}
+
+			@-webkit-keyframes fadeIn {
+				0% {
+					opacity: 0;
+				}
+
+				100% {
+					opacity: 1;
+				}
+			}
+
+			@keyframes fadeIn {
+				0% {
+					opacity: 0;
+				}
+
+				100% {
+					opacity: 1;
+				}
+			}
+
+			@-webkit-keyframes fadeOut {
+				0% {
+					opacity: 1;
+				}
+
+				100% {
+					opacity: 0;
+				}
+			}
+
+			@keyframes fadeOut {
+				0% {
+					opacity: 1;
+				}
+
+				100% {
+					opacity: 0;
+				}
+			}
+
+			p img {
+				max-width: 100% !important;
+				height: auto;
+			}
+		</style>
+
+	</head>
+
+	<body>
+		<div class="mui-content">
+			<div class="mui-content-padded">
+				<p style="width:100%;text-align:center">
+					<h5 style="font-size:15px;width:100%;text-align: center;">VR/AR技术在变电站的应用</h5>
+				</p>
+				<p style="width:100%;text-align:right">2019-03-15仿真事业部</p>
+				<p>
+					<h5>概述</h5>
+				</p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;基于VR虚拟现实技术的变电站仿真技术可以为继电保护运行人员提供直观了解变电站一次、二次设备运行、测试、维护、检修的平台，提供可视化、真实的现场真实感，弥补学员对变电站一次、二次设备特别是二次回路运行检修经验不足、测试条件不完整的弊端，实现故障异常模拟、设备功能测试、攻防能力测试等.
+				</p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;将AR增强现实技术应用于变电站设备检修及运维工作，借助AR技术在图像辨识、影像重构、信息交互方面的优势，通过终端设备扫描捕捉被检查设备的图像信息，并与后台数据库信息进行比对，能够自动检查发现设备的异常，发出提示信息，能够杜绝人工检查的错误。可以查看标准操作规范图像或视频，运用远程专家指导功能，实时进行远程协作及工作指导，使巡检人员有效完成智能巡检。
+				</p>
+
+				<p>
+					<h5>网络结构</h5>
+				</p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					利用多种先进的计算机技术，使VR/AR输入输出等传感器设备与变电站仿真软件连接通讯。采用数据库形式存储数学仿真模型和3D模型的实时状态信息，通过通讯方式实现两者的状态一致。VR/AR技术软件结构图如下：
+				</p>
+				<p>
+					<img src="./images/6-4/image001.jpg" style="max-width:100%" data-preview-src="" data-preview-group="1" />
+				</p>
+				<p>
+					<img src="./images/6-4/image003.png" style="max-width:100%" data-preview-src="" data-preview-group="1" />
+				</p>
+				<br>
+
+				<p>
+					<h5>系统组成</h5>
+				</p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;系统主要包括：通用仿真支撑系统(CYBERSIM)、电网动态分析程序(LAP)、户外一次设备仿真软件、室内控制及保护室仿真软件、教员台及培训管理软件、变电站监控系统软件、3D场景及设备模型、VR/AR硬件设备以及从实时数据库中数据读取及处理接口程序等。</p>
+
+
+				<p>
+					<h5>系统特点</h5>
+				</p>
+				<ol style="font-size:14px">
+					<li>仿真系统与虚拟现实设备实现了无缝联接</li>
+					<li>基于VR/AR技术的变电站仿真技术</li>
+					<li>真实的场景，趣味性和互动性强</li>
+					<li>电力系统一二次设备的巡视及操作</li>
+					<li>具有导航功能，能够快速跳转定位</li>
+					<li>实现故障设置及处理流程培训</li>
+
+					<li>设备铭牌查看及操作指导</li>
+					<li>故障诊断及远程专家指导</li>
+
+
+				</ol>
+				<p>
+					<h5>工程应用</h5>
+				</p>
+				<p>
+					<img src="./images/6-4/image007.jpg" style="max-width:100%" data-preview-src="" data-preview-group="1" />
+				</p>
+				<p>
+					<img src="./images/6-4/image009.jpg" style="max-width:100%" data-preview-src="" data-preview-group="1" />
+				</p>
+				<p>
+					<img src="./images/6-4/image011.png" style="max-width:100%" data-preview-src="" data-preview-group="1" />
+				</p>
+				<p>
+					<img src="./images/6-4/image013.jpg" style="max-width:100%" data-preview-src="" data-preview-group="1" />
+				</p>
+				<p>
+					<img src="./images/6-4/image015.jpg" style="max-width:100%" data-preview-src="" data-preview-group="1" />
+				</p>
+
+
+				<br>
+				<h4 style="text-align:center;color:royalblue">
+					★创新铸就四方，梦想点亮未来★<br><br>
+					★Innovation Lights Our Future★
+				</h4>
+				<br>
+				<p style="text-align:center;font-weight:bold">
+					四方股份为您提供优质的解决方案
+				</p>
+				<p style="text-align:center;font-weight:bold">
+					如有任何问题，请与我们联系<br>
+					邮箱：guodongxia@sf-auto.com<br>电话：18515513881/010-82181832
+				</p>
+
+			</div>
+		</div>
+	</body>
+	<script src="./js/mui.min.js"></script>
+	<script src="./js/mui.zoom.js"></script>
+	<script src="./js/mui.previewimage.js"></script>
+	<script>
+		mui.previewImage();
+	</script>
+
+</html>

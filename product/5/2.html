@@ -1,0 +1,335 @@
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>直流配电网电力电子变压器</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta http-equiv="Expires" content="0">
+		<meta http-equiv="Pragma" content="no-cache">
+		<meta http-equiv="Cache-control" content="no-cache">
+		<meta http-equiv="Cache" content="no-cache">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="./css/mui.min.css">
+		<!--App自定义的css-->
+		<style type="text/css">
+			p {
+				color: black;
+			}
+
+			h5 {
+				font-size: 14px;
+				font-weight: bold;
+				color: black;
+			}
+
+			.mui-preview-image.mui-fullscreen {
+				position: fixed;
+				z-index: 20;
+				background-color: #000;
+			}
+
+			.mui-preview-header,
+			.mui-preview-footer {
+				position: absolute;
+				width: 100%;
+				left: 0;
+				z-index: 10;
+			}
+
+			.mui-preview-header {
+				height: 44px;
+				top: 0;
+			}
+
+			.mui-preview-footer {
+				height: 50px;
+				bottom: 0px;
+			}
+
+			.mui-preview-header .mui-preview-indicator {
+				display: block;
+				line-height: 25px;
+				color: #fff;
+				text-align: center;
+				margin: 15px auto 4;
+				width: 70px;
+				background-color: rgba(0, 0, 0, 0.4);
+				border-radius: 12px;
+				font-size: 16px;
+			}
+
+			.mui-preview-image {
+				display: none;
+				-webkit-animation-duration: 0.5s;
+				animation-duration: 0.5s;
+				-webkit-animation-fill-mode: both;
+				animation-fill-mode: both;
+			}
+
+			.mui-preview-image.mui-preview-in {
+				-webkit-animation-name: fadeIn;
+				animation-name: fadeIn;
+			}
+
+			.mui-preview-image.mui-preview-out {
+				background: none;
+				-webkit-animation-name: fadeOut;
+				animation-name: fadeOut;
+			}
+
+			.mui-preview-image.mui-preview-out .mui-preview-header,
+			.mui-preview-image.mui-preview-out .mui-preview-footer {
+				display: none;
+			}
+
+			.mui-zoom-scroller {
+				position: absolute;
+				display: -webkit-box;
+				display: -webkit-flex;
+				display: flex;
+				-webkit-box-align: center;
+				-webkit-align-items: center;
+				align-items: center;
+				-webkit-box-pack: center;
+				-webkit-justify-content: center;
+				justify-content: center;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				margin: 0;
+				-webkit-backface-visibility: hidden;
+			}
+
+			.mui-zoom {
+				-webkit-transform-style: preserve-3d;
+				transform-style: preserve-3d;
+			}
+
+			.mui-slider .mui-slider-group .mui-slider-item img {
+				width: auto;
+				height: auto;
+				max-width: 100%;
+				max-height: 100%;
+			}
+
+			.mui-android-4-1 .mui-slider .mui-slider-group .mui-slider-item img {
+				width: 100%;
+			}
+
+			.mui-android-4-1 .mui-slider.mui-preview-image .mui-slider-group .mui-slider-item {
+				display: inline-table;
+			}
+
+			.mui-android-4-1 .mui-slider.mui-preview-image .mui-zoom-scroller img {
+				display: table-cell;
+				vertical-align: middle;
+			}
+
+			.mui-preview-loading {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				top: 0;
+				left: 0;
+				display: none;
+			}
+
+			.mui-preview-loading.mui-active {
+				display: block;
+			}
+
+			.mui-preview-loading .mui-spinner-white {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				margin-left: -25px;
+				margin-top: -25px;
+				height: 50px;
+				width: 50px;
+			}
+
+			.mui-preview-image img.mui-transitioning {
+				-webkit-transition: -webkit-transform 0.5s ease, opacity 0.5s ease;
+				transition: transform 0.5s ease, opacity 0.5s ease;
+			}
+
+			@-webkit-keyframes fadeIn {
+				0% {
+					opacity: 0;
+				}
+
+				100% {
+					opacity: 1;
+				}
+			}
+
+			@keyframes fadeIn {
+				0% {
+					opacity: 0;
+				}
+
+				100% {
+					opacity: 1;
+				}
+			}
+
+			@-webkit-keyframes fadeOut {
+				0% {
+					opacity: 1;
+				}
+
+				100% {
+					opacity: 0;
+				}
+			}
+
+			@keyframes fadeOut {
+				0% {
+					opacity: 1;
+				}
+
+				100% {
+					opacity: 0;
+				}
+			}
+
+			p img {
+				max-width: 100% !important;
+				height: auto;
+			}
+		</style>
+
+	</head>
+
+	<body>
+		<div class="mui-content">
+			<div class="mui-content-padded">
+				<p style="width:100%;text-align:center">
+					<h5 style="font-size:15px;width:100%;text-align: center;">直流配电网电力电子变压器</h5>
+				</p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					四方公司研制的直流变压器产品，可有效满足不同电压等级直流设备之间的能量双向交换，可实现直流配网、交流配网与直流微电网间的源-网-荷互动，相关产品已成功应用于国内重点工程。
+				</p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					四方公司典型直流变压器产品采用双端有源桥（DAB，Dual Active Bridge）结构，高压侧（±10kV）通过30个模块串联，低压侧（±375V）通过30个模块并联。
+				</p>
+				<p style="text-align:center">
+					<img src="./images/5-2/image1.png" style="max-width:100%" data-preview-src="" data-preview-group="1" />
+				</p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					功率模块内部隔离变压器采用超高开关频率的纳米晶材料，功率器件开关频率在10kHz及以上，可大幅降低功率模块体积。
+				</p>
+				<p style="text-align:center">
+					<img src="./images/5-2/image2.jpeg" style="max-width:100%" data-preview-src="" data-preview-group="1" />
+				</p>
+				<p style="width:100%;text-align: center;font-size:12px">功率模块外形图</p>
+				<br>
+				<p style="text-align:center">
+					<img src="./images/5-2/image3.jpeg" style="max-width:100%" data-preview-src="" data-preview-group="1" />
+				</p>
+				<p style="width:100%;text-align: center;font-size:12px">直流变压器整机外形图</p>
+				<br>
+				
+				<p style="text-align:center">
+					<img src="./images/5-2/image4.png" style="max-width:100%" data-preview-src="" data-preview-group="1" />
+				</p>
+				<p style="width:100%;text-align: center;font-size:12px">功率模块正面</p>
+				<br>
+				
+				<p style="text-align:center">
+					<img src="./images/5-2/image5.png" style="max-width:100%" data-preview-src="" data-preview-group="1" />
+				</p>
+				<p style="width:100%;text-align: center;font-size:12px">功率模块背面</p>
+				<br>
+				
+				<p style="text-align:center">
+					<img src="./images/5-2/image6.png" style="max-width:100%" data-preview-src="" data-preview-group="1" />
+				</p>
+				<p style="width:100%;text-align: center;font-size:12px">直流变压器正面</p>
+				<br>
+				<p style="text-align:center">
+					<img src="./images/5-2/image7.png" style="max-width:100%" data-preview-src="" data-preview-group="1" />
+				</p>
+				<p style="width:100%;text-align: center;font-size:12px">直流变压器背面</p>
+				<br>
+				<p style="width:100%;text-align: center;font-size:12px">典型直流变压器产品参数</p>
+				<p style="text-align:center">
+					<img src="./images/5-2/image16.png" style="max-width:100%" data-preview-src="" data-preview-group="1" />
+				</p>
+				<br>
+				<p style="text-align:center">
+					<img src="./images/5-2/image8.jpeg" style="max-width:100%" data-preview-src="" data-preview-group="1" />
+				</p>
+				<p style="width:100%;text-align: center;font-size:12px">双侧故障隔离ISOP型直流变压器（DC±10kV/DC±375V）</p>
+				<br>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				    为提高功率控制精度，在主控制器及模块控制器内实现了基于非线性平滑功率特性拟合的逆死区移相控制方法，补偿死区效应的影响，避免电压极性反转和沉降导致的移相角振荡，实现直流变压器高精度和超快速的直接功率控制能力。
+				</p>
+				<p style="text-align:center">
+					<img src="./images/5-2/image9.png" style="max-width:100%" data-preview-src="" data-preview-group="1" />
+				</p>
+				<p style="width:100%;text-align: center;font-size:12px">M=0.06, d=11/9功率传输曲线</p>
+				<br>
+				
+						<p style="text-align:center">
+					<img src="./images/5-2/image10.png" style="max-width:100%" data-preview-src="" data-preview-group="1" />
+				</p>
+				<p style="width:100%;text-align: center;font-size:12px">M=0.06, d=9/11功率传输曲线</p>
+				<br>
+				
+				
+						<p style="text-align:center">
+					<img src="./images/5-2/image11.png" style="max-width:100%" data-preview-src="" data-preview-group="1" />
+				</p>
+				<p style="width:100%;text-align: center;font-size:12px">M=0.06, d=0.95功率传输曲线</p>
+				<br>
+				
+						<p style="text-align:center">
+					<img src="./images/5-2/image12.png" style="max-width:100%" data-preview-src="" data-preview-group="1" />
+				</p>
+				<p style="width:100%;text-align: center;font-size:12px">M=0.06, d=1功率传输曲线</p>
+				<br>
+				
+				
+				
+						<p style="text-align:center">
+					<img src="./images/5-2/image13.png" style="max-width:100%" data-preview-src="" data-preview-group="1" />
+				</p>
+				<p style="width:100%;text-align: center;font-size:12px">死区拟合前</p>
+				<br>
+				
+				<p style="text-align:center">
+					<img src="./images/5-2/image14.png" style="max-width:100%" data-preview-src="" data-preview-group="1" />
+				</p>
+				<p style="width:100%;text-align: center;font-size:12px">死区拟合后</p>
+				<br>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				      四方公司研制的±10kV/±375V/0.5MW直流变压器已成功应用于贵州五端柔性互联示范工程，大幅提升了系统新能源消纳能力。
+				</p>
+				<p style="text-align:center">
+					<img src="./images/5-2/image15.png" style="max-width:100%" data-preview-src="" data-preview-group="1" />
+				</p>
+				<p style="width:100%;text-align: center;font-size:12px">贵州城市配电网柔性互联示范工程系统图</p>
+				<br>
+				<p style="text-align:center">
+					<img src="./images/5-2/image16.jpeg" style="max-width:100%" data-preview-src="" data-preview-group="1" />
+				</p>
+				<p style="width:100%;text-align: center;font-size:12px">DC±10kV/DC±375V直流变压器</p>
+				<br>
+				
+			</div>
+		</div>
+	</body>
+	<script src="./js/mui.min.js"></script>
+	<script src="./js/mui.zoom.js"></script>
+	<script src="./js/mui.previewimage.js"></script>
+	<script>
+		mui.previewImage();
+	</script>
+
+</html>

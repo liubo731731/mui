@@ -1,0 +1,297 @@
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>安全管理云服务中心</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta http-equiv="Expires" content="0">
+		<meta http-equiv="Pragma" content="no-cache">
+		<meta http-equiv="Cache-control" content="no-cache">
+		<meta http-equiv="Cache" content="no-cache">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="./css/mui.min.css">
+		<!--App自定义的css-->
+		<style type="text/css">
+			p {
+				color: black;
+			}
+
+			h5 {
+				font-size: 14px;
+				font-weight: bold;
+				color: black;
+			}
+
+			.mui-preview-image.mui-fullscreen {
+				position: fixed;
+				z-index: 20;
+				background-color: #000;
+			}
+
+			.mui-preview-header,
+			.mui-preview-footer {
+				position: absolute;
+				width: 100%;
+				left: 0;
+				z-index: 10;
+			}
+
+			.mui-preview-header {
+				height: 44px;
+				top: 0;
+			}
+
+			.mui-preview-footer {
+				height: 50px;
+				bottom: 0px;
+			}
+
+			.mui-preview-header .mui-preview-indicator {
+				display: block;
+				line-height: 25px;
+				color: #fff;
+				text-align: center;
+				margin: 15px auto 4;
+				width: 70px;
+				background-color: rgba(0, 0, 0, 0.4);
+				border-radius: 12px;
+				font-size: 16px;
+			}
+
+			.mui-preview-image {
+				display: none;
+				-webkit-animation-duration: 0.5s;
+				animation-duration: 0.5s;
+				-webkit-animation-fill-mode: both;
+				animation-fill-mode: both;
+			}
+
+			.mui-preview-image.mui-preview-in {
+				-webkit-animation-name: fadeIn;
+				animation-name: fadeIn;
+			}
+
+			.mui-preview-image.mui-preview-out {
+				background: none;
+				-webkit-animation-name: fadeOut;
+				animation-name: fadeOut;
+			}
+
+			.mui-preview-image.mui-preview-out .mui-preview-header,
+			.mui-preview-image.mui-preview-out .mui-preview-footer {
+				display: none;
+			}
+
+			.mui-zoom-scroller {
+				position: absolute;
+				display: -webkit-box;
+				display: -webkit-flex;
+				display: flex;
+				-webkit-box-align: center;
+				-webkit-align-items: center;
+				align-items: center;
+				-webkit-box-pack: center;
+				-webkit-justify-content: center;
+				justify-content: center;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				margin: 0;
+				-webkit-backface-visibility: hidden;
+			}
+
+			.mui-zoom {
+				-webkit-transform-style: preserve-3d;
+				transform-style: preserve-3d;
+			}
+
+			.mui-slider .mui-slider-group .mui-slider-item img {
+				width: auto;
+				height: auto;
+				max-width: 100%;
+				max-height: 100%;
+			}
+
+			.mui-android-4-1 .mui-slider .mui-slider-group .mui-slider-item img {
+				width: 100%;
+			}
+
+			.mui-android-4-1 .mui-slider.mui-preview-image .mui-slider-group .mui-slider-item {
+				display: inline-table;
+			}
+
+			.mui-android-4-1 .mui-slider.mui-preview-image .mui-zoom-scroller img {
+				display: table-cell;
+				vertical-align: middle;
+			}
+
+			.mui-preview-loading {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				top: 0;
+				left: 0;
+				display: none;
+			}
+
+			.mui-preview-loading.mui-active {
+				display: block;
+			}
+
+			.mui-preview-loading .mui-spinner-white {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				margin-left: -25px;
+				margin-top: -25px;
+				height: 50px;
+				width: 50px;
+			}
+
+			.mui-preview-image img.mui-transitioning {
+				-webkit-transition: -webkit-transform 0.5s ease, opacity 0.5s ease;
+				transition: transform 0.5s ease, opacity 0.5s ease;
+			}
+
+			@-webkit-keyframes fadeIn {
+				0% {
+					opacity: 0;
+				}
+
+				100% {
+					opacity: 1;
+				}
+			}
+
+			@keyframes fadeIn {
+				0% {
+					opacity: 0;
+				}
+
+				100% {
+					opacity: 1;
+				}
+			}
+
+			@-webkit-keyframes fadeOut {
+				0% {
+					opacity: 1;
+				}
+
+				100% {
+					opacity: 0;
+				}
+			}
+
+			@keyframes fadeOut {
+				0% {
+					opacity: 1;
+				}
+
+				100% {
+					opacity: 0;
+				}
+			}
+
+			p img {
+				max-width: 100% !important;
+				height: auto;
+			}
+		</style>
+
+	</head>
+
+	<body>
+		<div class="mui-content">
+			<div class="mui-content-padded">
+				<p style="width:100%;text-align:center">
+					<h5 style="font-size:15px;width:100%;text-align: center;">安全管理云服务中心</h5>
+				</p>
+				<br>
+
+				<p>
+					<h5>概述</h5>
+				</p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;安全管理云服务中心通过物联网、云计算、移动互联网等技术，将用户现场的各类安全系统运行数据采集到云服务平台，并结合数据应用软件，实现对各联网用户现场实时有效的安全管理。
+				</p>
+
+				<p>
+					<h5>网络结构</h5>
+				</p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;安全管理云服务中心平台集成了远程视频监控、入侵报警、语音对讲、电气监测、智能分析、工单管理、手机APP等功能于一体。通过摄像机、传感器、IP对讲等多种终端形式接入系统，进行远程监控、故障巡检、联动报警、远程控制等多种形式操作，实现系统远程智能化运维和安全监控管理。
+				</p>
+				<p>
+					<img src="./images/6-1/image001.png" style="max-width:100%" data-preview-src="" data-preview-group="1" />
+				</p>
+				<br>
+
+
+				<h5>系统组成</h5>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;系统由前端感知层、网络传输层、平台服务层以及系统应用层组成。系统具备实时视频监控、信息采集、设备巡检、录像存储、工单管理等功能，能够远程实时上传监控点安全系统运行情况、锁定突发事件现场实时画面。
+				</p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;同时四方公司已建成3个7*24小时客户服务中心，为用户提供集现场安全系统设计、施工、事件处置、联网服务于一体的安全托管运营服务。
+				</p>
+				<p>
+					<img src="./images/6-1/image003.png" style="max-width:100%" data-preview-src="" data-preview-group="1" />
+				</p>
+				<p>
+					<img src="./images/6-1/image005.png" style="max-width:100%;width:100%" data-preview-src="" data-preview-group="1" />
+				</p>
+				<p>
+					<img src="./images/6-1/image007.png" style="max-width:100%;width:100%" data-preview-src="" data-preview-group="1" />
+				</p>
+				<p>
+					<img src="./images/6-1/image009.png" style="max-width:100%;width:100%" data-preview-src="" data-preview-group="1" />
+				</p>
+				<p style="width:100%;text-align:center">
+					<h5 style="font-size:15px;width:100%;text-align: center;">安全管理云服务=智能终端+管理云平台+24小时现场技术服务+保险理赔保障</h5>
+				</p>
+				<br>
+
+				<p>
+					<h5>主要服务内容</h5>
+				</p>
+				<p> 
+				<p></p>
+				
+					■系统建设<br>
+					<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;根据客户需求，按照监管部门要求及相关行业标准，接受用户委托，承担安全管理系统的设计和建设工作。</p>
+					
+					■维保服务<br>
+					<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;专业技术团队全天候、全方位提供专业技术服务，对客户的安全系统和设备提供专业化的检查、调试、清洁等预防性维护保养，确保系统处于安全运营状态。</p>
+
+					■事件处置<br>
+					<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7*24小时监控中心负责事件监控及处置，7*24小时提供专业技术人员派遣服务，及时响应并赴现场处置。属于公共事件或重大刑事、灾害事件，则立即转发给相应的政府职能部门进行处置。</p>
+
+					■保险机制<br>
+					<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;四方公司为所有入网用户在中国人寿保险公司投保产品责任险、公众责任险，在合同约定范围内，发生安全事件时，第一时间得到保险公司理赔，保障客户人身及财产安全。</p>
+				</p>
+				<br>
+				<h4 style="text-align:center;color:royalblue">
+					★创新铸就四方，梦想点亮未来★<br><br>
+					★Innovation Lights Our Future★
+				</h4>
+				<br>
+				<p style="text-align:center;font-weight:bold">
+					四方股份为您提供优质的解决方案
+				</p>
+				<p style="text-align:center;font-weight:bold">
+					如有任何问题，请与我们联系<br>
+					邮箱：huqian@sf-auto.com<br>电话：18515511628
+				</p>
+			</div>
+		</div>
+	</body>
+	<script src="./js/mui.min.js"></script>
+	<script src="./js/mui.zoom.js"></script>
+	<script src="./js/mui.previewimage.js"></script>
+	<script>
+		mui.previewImage();
+	</script>
+
+</html>

@@ -1,0 +1,334 @@
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>CSD-1321系列智能通信控制装置</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta http-equiv="Expires" content="0">
+		<meta http-equiv="Pragma" content="no-cache">
+		<meta http-equiv="Cache-control" content="no-cache">
+		<meta http-equiv="Cache" content="no-cache">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="./css/mui.min.css">
+		<!--App自定义的css-->
+		<style type="text/css">
+			p{
+				color:black;
+			}
+			h5{
+				font-size:14px;	
+				font-weight: bold;
+				color:black;
+			}
+			
+			.mui-preview-image.mui-fullscreen {
+				position: fixed;
+				z-index: 20;
+				background-color: #000;
+			}
+
+			.mui-preview-header,
+			.mui-preview-footer {
+				position: absolute;
+				width: 100%;
+				left: 0;
+				z-index: 10;
+			}
+
+			.mui-preview-header {
+				height: 44px;
+				top: 0;
+			}
+
+			.mui-preview-footer {
+				height: 50px;
+				bottom: 0px;
+			}
+
+			.mui-preview-header .mui-preview-indicator {
+				display: block;
+				line-height: 25px;
+				color: #fff;
+				text-align: center;
+				margin: 15px auto 4;
+				width: 70px;
+				background-color: rgba(0, 0, 0, 0.4);
+				border-radius: 12px;
+				font-size: 16px;
+			}
+
+			.mui-preview-image {
+				display: none;
+				-webkit-animation-duration: 0.5s;
+				animation-duration: 0.5s;
+				-webkit-animation-fill-mode: both;
+				animation-fill-mode: both;
+			}
+
+			.mui-preview-image.mui-preview-in {
+				-webkit-animation-name: fadeIn;
+				animation-name: fadeIn;
+			}
+
+			.mui-preview-image.mui-preview-out {
+				background: none;
+				-webkit-animation-name: fadeOut;
+				animation-name: fadeOut;
+			}
+
+			.mui-preview-image.mui-preview-out .mui-preview-header,
+			.mui-preview-image.mui-preview-out .mui-preview-footer {
+				display: none;
+			}
+
+			.mui-zoom-scroller {
+				position: absolute;
+				display: -webkit-box;
+				display: -webkit-flex;
+				display: flex;
+				-webkit-box-align: center;
+				-webkit-align-items: center;
+				align-items: center;
+				-webkit-box-pack: center;
+				-webkit-justify-content: center;
+				justify-content: center;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				margin: 0;
+				-webkit-backface-visibility: hidden;
+			}
+
+			.mui-zoom {
+				-webkit-transform-style: preserve-3d;
+				transform-style: preserve-3d;
+			}
+
+			.mui-slider .mui-slider-group .mui-slider-item img {
+				width: auto;
+				height: auto;
+				max-width: 100%;
+				max-height: 100%;
+			}
+
+			.mui-android-4-1 .mui-slider .mui-slider-group .mui-slider-item img {
+				width: 100%;
+			}
+
+			.mui-android-4-1 .mui-slider.mui-preview-image .mui-slider-group .mui-slider-item {
+				display: inline-table;
+			}
+
+			.mui-android-4-1 .mui-slider.mui-preview-image .mui-zoom-scroller img {
+				display: table-cell;
+				vertical-align: middle;
+			}
+
+			.mui-preview-loading {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				top: 0;
+				left: 0;
+				display: none;
+			}
+
+			.mui-preview-loading.mui-active {
+				display: block;
+			}
+
+			.mui-preview-loading .mui-spinner-white {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				margin-left: -25px;
+				margin-top: -25px;
+				height: 50px;
+				width: 50px;
+			}
+
+			.mui-preview-image img.mui-transitioning {
+				-webkit-transition: -webkit-transform 0.5s ease, opacity 0.5s ease;
+				transition: transform 0.5s ease, opacity 0.5s ease;
+			}
+
+			@-webkit-keyframes fadeIn {
+				0% {
+					opacity: 0;
+				}
+
+				100% {
+					opacity: 1;
+				}
+			}
+
+			@keyframes fadeIn {
+				0% {
+					opacity: 0;
+				}
+
+				100% {
+					opacity: 1;
+				}
+			}
+
+			@-webkit-keyframes fadeOut {
+				0% {
+					opacity: 1;
+				}
+
+				100% {
+					opacity: 0;
+				}
+			}
+
+			@keyframes fadeOut {
+				0% {
+					opacity: 1;
+				}
+
+				100% {
+					opacity: 0;
+				}
+			}
+
+			p img {
+				max-width: 100%!important;
+				height: auto;
+			}
+		</style>
+
+	</head>
+
+	<body>
+		<div class="mui-content">
+			<div class="mui-content-padded">
+				<p style="width:100%;text-align:center"><h5 style="font-size:15px;width:100%;text-align: center;">CSD-1321系列智能通信控制装置</h5></p>
+
+				<p><h5>项目意义</h5></p>
+				<ul style="font-size:14px">
+					  <li>三个统一：通信类装置统一软件、统一型号、统一工具</li>
+			    <br>
+				<p style="text-align:center">
+				   <img src="./images/1-4/image003.jpg" style="max-width:100%" data-preview-src="" data-preview-group="1" />	
+				</p> 
+			
+				 </ul>
+				 <ul style="font-size:14px">
+				 	  <li>三个解耦：平台软件和操作系统解耦，软件和硬件解耦，规约模块和平台软件解耦，同样的软件在不同的硬件平台上运行形成同一型号产品的不同产品形态。</li>
+				 <br>
+				 <p style="text-align:center">
+				   <img src="./images/1-4/image002.png" style="max-width:100%" data-preview-src="" data-preview-group="1" />	
+				 </p> 
+				  </ul>
+			
+				<p><h5>产品形态和典型应用</h5></p>
+				 <ul style="font-size:14px">
+					  <li>CSD-1321G4国网数据通信网关机（Ⅰ区、Ⅱ区）</li>
+					  <ol>
+						<li>4U机架安装多CPU装置</li>
+						 <li>取代传统的远动机，四遥量采集，遥控执行；取代传统的保信子站，实现保护事件、故障参数采集，定值调阅和修改，录波采集和传输</li>
+						  <li>实现告警直传、远程浏览、一键式顺控等高级应用</li>
+						  <li>2016年7月，国网四统一四规范预测试，以样例一次性通过率第一的成绩通过检测</li>
+				      </ol>
+					  <br>
+					  <p style="text-align:center">
+					    <img src="./images/1-4/image005.png" style="max-width:100%" data-preview-src="" data-preview-group="1" />	
+					  </p> 
+					  
+					  <li>CSD-1321N4智能远动机</li>
+					   <ol>
+					   		<li>4U机架安装多CPU装置</li>
+					   		<li>集成远动、保信、电量计量、在线监测、PMU集中器五大业务，具备稳态、暂态和动态全景数据处理能力</li>
+					   		<li>具备源端维护、程序化控制等高级应用功能</li>
+					   		<li>2016年3月，南网委托开普实智能远动机保信业务测试，无遗留缺陷第一轮通过</li>
+					   </ol>
+					   <br>
+					   <p style="text-align:center">
+					     <img src="./images/1-4/image007.jpg" style="max-width:100%" data-preview-src="" data-preview-group="1" />	
+					    </p>
+						
+					    <li>CSD-1321A2轨道交通电气自动化通信控制装置</li>
+						 <ol>
+		                   <li>内置交换模块，适合轨道交通电气自动化系统组网环境</li>
+		                    <li>可选择x86、ARM等不同硬件架构</li>
+						 </ol>
+						 <br>
+						 <p style="text-align:center">
+						   <img src="./images/1-4/image009.png" style="max-width:100%" data-preview-src="" data-preview-group="1" />	
+						  </p>
+						  	  <li>CSD-1321B1变电站通信管理装置/CSD-1321B0分布式通信控制单元</li>
+						   <ol>
+							<li>1U机架安装和导轨安装单CPU装置不同形态产品共享所有软硬件成果</li>
+							<li>可接入以太网、串口及其他接口装置</li>
+							<li>安装灵活，占用空间小</li>
+						   </ol>
+						   <br>
+						   <p style="text-align:center">
+						     <img src="./images/1-4/image011.png" style="max-width:100%" data-preview-src="" data-preview-group="1" />	
+						    </p>
+							<br>
+							<p style="text-align:center">
+							  <img src="./images/1-4/image013.jpg" style="max-width:100%" data-preview-src="" data-preview-group="1" />	
+							</p>
+					   
+				 </ul>
+		
+		<p><h5>关键软硬件技术指标</h5></p>
+		 <ul style="font-size:14px">
+			  <li>硬件配置（4U装置）</li>
+			  <ol>
+				<li>双核嵌入式CPU，2 GB DDR SDRAM</li>
+				 <li>支持SATA接口，可配置各种容量的SSD固态硬盘，目前128GB</li>
+				  <li>每块以太网板6路RJ45以太网口可支持千兆以太网；每块串口板6路RS485/232复用串口；每块DIO板3路开出、14路开入；B码对时接口可选</li>
+				  <li>采用CSD平台的SMBG背板总线架构，总带宽超过1Gbps</li>
+		      </ol>
+			  <br>
+			  <li>关键性能指标（江苏电科院实测数据）</li>
+			  <ol>
+			  	<li>双核嵌入式CPU，2 GB DDR SDRAM</li>
+			  	<li>支持SATA接口，可配置各种容量的SSD固态硬盘，目前128GB</li>
+			  	<li>每块以太网板6路RJ45以太网口可支持千兆以太网；每块串口板6路RS485/232复用串口；每块DIO板3路开出、14路开入；B码对时接口可选</li>
+			  	<li>采用CSD平台的SMBG背板总线架构，总带宽超过1Gbps</li>
+			  </ol>
+			  <br>
+			  <p style="text-align:center">
+			    <img src="./images/1-4/image012.png" style="max-width:100%" data-preview-src="" data-preview-group="1" />	
+			  </p>
+		</ul>
+							 
+	   <p><h5>产品典型应用案例</h5></p>
+	   <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;已有200台以上的应用案例，比较典型的案例如下</p>
+		<ul style="font-size:14px">
+	        <li>宁夏 黎阳电厂750KV站，接入国调、西北网，完成远动、GSP保信子站、告警直传、图形浏览业务</li>
+	        <li>江苏 玉华变200KV站，接入盐城地调，完成远动业务</li>
+			<li>佛山 松夏220KV站，接入广东省调、佛山地调，完成保信、远动业务</li>
+			 <li>东莞 纵江500KV站，接入南网总调、东莞地调，完成保信、远动、PMU集中器业务</li>
+			  <li>山东莱芜希格斯分布式光伏集控中心项目，分布式光伏接入集控中心</li>
+      </ul>
+		 
+			<br>
+				<h4 style="text-align:center;color:royalblue">					
+					★创新铸就四方，梦想点亮未来★<br><br>
+					★Innovation Lights Our Future★ 
+				</h4>
+				<br>
+				<p style="text-align:center;font-weight:bold">
+				四方股份为您提供优质的解决方案
+				</p>	
+			</div>
+		</div>
+	</body>
+	<script src="./js/mui.min.js"></script>
+	<script src="./js/mui.zoom.js"></script>
+	<script src="./js/mui.previewimage.js"></script>
+	<script>
+		mui.previewImage();
+	</script>
+
+</html>

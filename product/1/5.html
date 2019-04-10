@@ -1,0 +1,288 @@
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>一键顺控（含高压隔离开关状态监测系统）</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta http-equiv="Expires" content="0">
+		<meta http-equiv="Pragma" content="no-cache">
+		<meta http-equiv="Cache-control" content="no-cache">
+		<meta http-equiv="Cache" content="no-cache">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="./css/mui.min.css">
+		<!--App自定义的css-->
+		<style type="text/css">
+			p{
+				color:black;
+			}
+			h5{
+				font-size:14px;	
+				font-weight: bold;
+				color:black;
+			}
+			
+			.mui-preview-image.mui-fullscreen {
+				position: fixed;
+				z-index: 20;
+				background-color: #000;
+			}
+
+			.mui-preview-header,
+			.mui-preview-footer {
+				position: absolute;
+				width: 100%;
+				left: 0;
+				z-index: 10;
+			}
+
+			.mui-preview-header {
+				height: 44px;
+				top: 0;
+			}
+
+			.mui-preview-footer {
+				height: 50px;
+				bottom: 0px;
+			}
+
+			.mui-preview-header .mui-preview-indicator {
+				display: block;
+				line-height: 25px;
+				color: #fff;
+				text-align: center;
+				margin: 15px auto 4;
+				width: 70px;
+				background-color: rgba(0, 0, 0, 0.4);
+				border-radius: 12px;
+				font-size: 16px;
+			}
+
+			.mui-preview-image {
+				display: none;
+				-webkit-animation-duration: 0.5s;
+				animation-duration: 0.5s;
+				-webkit-animation-fill-mode: both;
+				animation-fill-mode: both;
+			}
+
+			.mui-preview-image.mui-preview-in {
+				-webkit-animation-name: fadeIn;
+				animation-name: fadeIn;
+			}
+
+			.mui-preview-image.mui-preview-out {
+				background: none;
+				-webkit-animation-name: fadeOut;
+				animation-name: fadeOut;
+			}
+
+			.mui-preview-image.mui-preview-out .mui-preview-header,
+			.mui-preview-image.mui-preview-out .mui-preview-footer {
+				display: none;
+			}
+
+			.mui-zoom-scroller {
+				position: absolute;
+				display: -webkit-box;
+				display: -webkit-flex;
+				display: flex;
+				-webkit-box-align: center;
+				-webkit-align-items: center;
+				align-items: center;
+				-webkit-box-pack: center;
+				-webkit-justify-content: center;
+				justify-content: center;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				margin: 0;
+				-webkit-backface-visibility: hidden;
+			}
+
+			.mui-zoom {
+				-webkit-transform-style: preserve-3d;
+				transform-style: preserve-3d;
+			}
+
+			.mui-slider .mui-slider-group .mui-slider-item img {
+				width: auto;
+				height: auto;
+				max-width: 100%;
+				max-height: 100%;
+			}
+
+			.mui-android-4-1 .mui-slider .mui-slider-group .mui-slider-item img {
+				width: 100%;
+			}
+
+			.mui-android-4-1 .mui-slider.mui-preview-image .mui-slider-group .mui-slider-item {
+				display: inline-table;
+			}
+
+			.mui-android-4-1 .mui-slider.mui-preview-image .mui-zoom-scroller img {
+				display: table-cell;
+				vertical-align: middle;
+			}
+
+			.mui-preview-loading {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				top: 0;
+				left: 0;
+				display: none;
+			}
+
+			.mui-preview-loading.mui-active {
+				display: block;
+			}
+
+			.mui-preview-loading .mui-spinner-white {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				margin-left: -25px;
+				margin-top: -25px;
+				height: 50px;
+				width: 50px;
+			}
+
+			.mui-preview-image img.mui-transitioning {
+				-webkit-transition: -webkit-transform 0.5s ease, opacity 0.5s ease;
+				transition: transform 0.5s ease, opacity 0.5s ease;
+			}
+
+			@-webkit-keyframes fadeIn {
+				0% {
+					opacity: 0;
+				}
+
+				100% {
+					opacity: 1;
+				}
+			}
+
+			@keyframes fadeIn {
+				0% {
+					opacity: 0;
+				}
+
+				100% {
+					opacity: 1;
+				}
+			}
+
+			@-webkit-keyframes fadeOut {
+				0% {
+					opacity: 1;
+				}
+
+				100% {
+					opacity: 0;
+				}
+			}
+
+			@keyframes fadeOut {
+				0% {
+					opacity: 1;
+				}
+
+				100% {
+					opacity: 0;
+				}
+			}
+
+			p img {
+				max-width: 100%!important;
+				height: auto;
+			}
+		</style>
+
+	</head>
+
+	<body>
+		<div class="mui-content">
+			<div class="mui-content-padded">
+				<p style="width:100%;text-align:center"><h5 style="font-size:15px;width:100%;text-align: center;">一键顺控（含高压隔离开关状态监测系统）</h5></p>
+
+				<p><h5>概述</h5></p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;一键顺控是国网公司提出的一种新型变电站倒闸操作模式，实现设备操作状态自动判别、防误联锁智能校核、操作步骤一键完成。四方公司产品顺控主机和智能防误主机顺利通过国网公司一键顺控首批送检。国网公司计划在未来5年对110kV及以上的变电站一键顺控建设与改造，市场前景广阔。
+				</p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;四方公司一键顺控产品全面，技术领先。可提供一键顺控系统、智能防误系统、主设备全面监视系统、辅助设备全面监控系统和双确认校核系统等全系列产品和技术方案，产品线齐全。
+				</p>
+				<p><h5>网络结构</h5></p>
+				<p style="text-align:center">
+				 <img src="./images/1-5/image002.png" style="max-width:100%" data-preview-src="" data-preview-group="1" />	
+				</p>
+				<ul style="font-size:14px">
+					  <li>监控产品: 顺控主机、智能防误主机</li>
+					  <li>主要技术:新界面、权限双因子验证、双套防误校验、遥控双确认、视频辅控联动、……</li>
+					  <li>“双确认” 产品:高压隔离开关状态监测系统、视频智能分析系统、波形比对检测系统</li>
+				  </ul>
+				
+			     <p><h5>高压隔离开关状态监测系统</h5></p>
+				 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                   “高压隔离开关状态监测系统”主要由CSN-49D姿态传感器和CSC-171H开关状态监测单元组成，是实现“隔离开关分合闸状态双确认”的核心系统，是实现变电站“一键顺控操作”的关键组成部分。已通过国网统一入网检测，成为首批检测通过的唯一的二次设备厂家。该系统适用于各种形式的高压隔离开关，并率先在国网首个姿态传感器“双确认”试点工程（浙江天湖220kV变电站）中投运。				 
+				 </p>
+	
+				 
+				  <p><h5>系统优势</h5></p>
+					<p style="text-align:center">
+					 <img src="./images/1-5/image003.png" style="max-width:100%" data-preview-src="" data-preview-group="1" />	
+					</p>
+					<ul style="font-size:14px">
+						  <li>能够适应电力系统中110kV及以上电压等级全部类型隔离开关</li>
+						  <li>相对其他原理传感器，具有安全可靠，施工简便，免维护等特点</li>
+						  <li>能够有效的降低电网运维成本</li>
+						  <li>提供具备“合闸到位、合闸异常、分闸到位、分闸异常”四种状态报警功能</li>
+						  <li>能够同时具备以太网和无源开出节点两种输出形式，能够适应全部类型变电站</li>
+					  </ul>
+				 <p>
+					 
+				   <p><h5>典型工程应用</h5></p>
+						<p style="text-align:center">
+						 <img src="./images/1-5/image005.png" style="max-width:100%" data-preview-src="" data-preview-group="1" />	
+						</p>
+						<p style="text-align:center">
+						 <img src="./images/1-5/image007.png" style="max-width:100%" data-preview-src="" data-preview-group="1" />	
+						</p>
+				 <p>
+				<ul style="font-size:14px">
+					  <li>湖北110kV庆洪变</li>
+					  <li>重庆110kV享堂变</li>
+					  <li>重庆110kV大佛寺变</li>
+					  <li>湖北110kV唐镇变</li>
+					  <li>……</li>
+                  </ul>
+					</p>
+					
+			<br>
+				<h4 style="text-align:center;color:royalblue">					
+					★创新铸就四方，梦想点亮未来★<br><br>
+					★Innovation Lights Our Future★ 
+				</h4>
+				<br>
+				<p style="text-align:center;font-weight:bold">
+				四方股份为您提供优质的解决方案
+				</p>	
+				<p style="text-align:center;font-weight:bold">
+				如有任何问题，请与我们联系<br>	
+				邮箱：fankun@sf-auto.com<br>电话：010 - 62961515 - 1282
+				</p>	
+
+			</div>
+		</div>
+	</body>
+	<script src="./js/mui.min.js"></script>
+	<script src="./js/mui.zoom.js"></script>
+	<script src="./js/mui.previewimage.js"></script>
+	<script>
+		mui.previewImage();
+	</script>
+
+</html>

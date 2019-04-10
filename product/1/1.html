@@ -1,0 +1,282 @@
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>CSD系列就地化保护装置</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta http-equiv="Expires" content="0">
+		<meta http-equiv="Pragma" content="no-cache">
+		<meta http-equiv="Cache-control" content="no-cache">
+		<meta http-equiv="Cache" content="no-cache">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="./css/mui.min.css">
+		<!--App自定义的css-->
+		<style type="text/css">
+			p{
+				color:black;
+			}
+			h5{
+				font-size:14px;	
+				font-weight: bold;
+				color:black;
+			}
+			
+			.mui-preview-image.mui-fullscreen {
+				position: fixed;
+				z-index: 20;
+				background-color: #000;
+			}
+
+			.mui-preview-header,
+			.mui-preview-footer {
+				position: absolute;
+				width: 100%;
+				left: 0;
+				z-index: 10;
+			}
+
+			.mui-preview-header {
+				height: 44px;
+				top: 0;
+			}
+
+			.mui-preview-footer {
+				height: 50px;
+				bottom: 0px;
+			}
+
+			.mui-preview-header .mui-preview-indicator {
+				display: block;
+				line-height: 25px;
+				color: #fff;
+				text-align: center;
+				margin: 15px auto 4;
+				width: 70px;
+				background-color: rgba(0, 0, 0, 0.4);
+				border-radius: 12px;
+				font-size: 16px;
+			}
+
+			.mui-preview-image {
+				display: none;
+				-webkit-animation-duration: 0.5s;
+				animation-duration: 0.5s;
+				-webkit-animation-fill-mode: both;
+				animation-fill-mode: both;
+			}
+
+			.mui-preview-image.mui-preview-in {
+				-webkit-animation-name: fadeIn;
+				animation-name: fadeIn;
+			}
+
+			.mui-preview-image.mui-preview-out {
+				background: none;
+				-webkit-animation-name: fadeOut;
+				animation-name: fadeOut;
+			}
+
+			.mui-preview-image.mui-preview-out .mui-preview-header,
+			.mui-preview-image.mui-preview-out .mui-preview-footer {
+				display: none;
+			}
+
+			.mui-zoom-scroller {
+				position: absolute;
+				display: -webkit-box;
+				display: -webkit-flex;
+				display: flex;
+				-webkit-box-align: center;
+				-webkit-align-items: center;
+				align-items: center;
+				-webkit-box-pack: center;
+				-webkit-justify-content: center;
+				justify-content: center;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				margin: 0;
+				-webkit-backface-visibility: hidden;
+			}
+
+			.mui-zoom {
+				-webkit-transform-style: preserve-3d;
+				transform-style: preserve-3d;
+			}
+
+			.mui-slider .mui-slider-group .mui-slider-item img {
+				width: auto;
+				height: auto;
+				max-width: 100%;
+				max-height: 100%;
+			}
+
+			.mui-android-4-1 .mui-slider .mui-slider-group .mui-slider-item img {
+				width: 100%;
+			}
+
+			.mui-android-4-1 .mui-slider.mui-preview-image .mui-slider-group .mui-slider-item {
+				display: inline-table;
+			}
+
+			.mui-android-4-1 .mui-slider.mui-preview-image .mui-zoom-scroller img {
+				display: table-cell;
+				vertical-align: middle;
+			}
+
+			.mui-preview-loading {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				top: 0;
+				left: 0;
+				display: none;
+			}
+
+			.mui-preview-loading.mui-active {
+				display: block;
+			}
+
+			.mui-preview-loading .mui-spinner-white {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				margin-left: -25px;
+				margin-top: -25px;
+				height: 50px;
+				width: 50px;
+			}
+
+			.mui-preview-image img.mui-transitioning {
+				-webkit-transition: -webkit-transform 0.5s ease, opacity 0.5s ease;
+				transition: transform 0.5s ease, opacity 0.5s ease;
+			}
+
+			@-webkit-keyframes fadeIn {
+				0% {
+					opacity: 0;
+				}
+
+				100% {
+					opacity: 1;
+				}
+			}
+
+			@keyframes fadeIn {
+				0% {
+					opacity: 0;
+				}
+
+				100% {
+					opacity: 1;
+				}
+			}
+
+			@-webkit-keyframes fadeOut {
+				0% {
+					opacity: 1;
+				}
+
+				100% {
+					opacity: 0;
+				}
+			}
+
+			@keyframes fadeOut {
+				0% {
+					opacity: 1;
+				}
+
+				100% {
+					opacity: 0;
+				}
+			}
+
+			p img {
+				max-width: 100%!important;
+				height: auto;
+			}
+		</style>
+
+	</head>
+
+	<body>
+		<div class="mui-content">
+			<div class="mui-content-padded">
+				<p style="width:100%;text-align:center"><h5 style="font-size:15px;width:100%;text-align: center;">CSD系列就地化保护装置</h5></p>
+				<br>
+				<p><h5>概述</h5></p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;四方公司研制出的CSD系列就地化保护装置适用于110kV~750kV电压等级，具有完全自主知识产权。其在自主研制的AESP（高级嵌入式软件）平台上实现了软件开发的柔性制造以及逻辑可编程功能，提升了保护装置的可靠性和灵活性。
+				</p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CSD系列就地化保护装置防护等级达到IP67，支持直接贴近一次设备就地布置安装。实现了保护装置间隔功能集约化设计和保护装置的即插即用，采用电缆直接采样直接跳闸，减少了中间传输环节，整体提升了保护系统的速动性。
+				</p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;北京四方公司是一次性通过国网110kV系列就地化保护装置首轮测试的唯一厂商。CSD系列就地化保护装置具有很好的社会经济效益和推广应用前景，整体技术达到国际领先水平。
+				</p>
+				<p><h5>配置方案</h5></p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;以“采样数字化、保护就地化、元件保护专网化、信息共享化”为特征的就地化保护新技术为解决上述问题提供了有利途径和技术支撑。低功耗芯片集成技术、光纤通信技术的发展，以及装置电磁兼容、高防护、热设计等关键技术的突破，为就地化保护方案的实施提供了技术基础。
+				</p>
+				<p>
+				 <img src="./images/1-1/image001.png" style="max-width:100%" data-preview-src="" data-preview-group="1" />	
+				</p>
+			     <p style="width:100%;text-align: center;font-size:12px">图1 就地化保护整站方案典型配置图
+				</p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;就地化保护通过贴近一次设备就地布置，采用电缆直接跳闸，减少电缆长度及中间环节，提升继电保护的速动性和可靠性；基于接口标准化设计，采用标准航空插头，实现保护装置的工厂化调试、模块化安装和更换式检修，减少二次设备安装、调试和检修时间，提升工作质量和效率，减少停电时间；配置一键式下装，实现装置的少维护、易维护，降低对现场工作人员的技能要求、减少现场工作量；通过一体化设计，实现继电保护装置小型化、集成化，减少设备类型及数量，降低整体设备缺陷率；保护间信息交互标准化，不依赖SCD文件，减少了保护拒动的风险。同时，保护装置就地安装能够促进一、二次设备融合。因此，应开展以就地化为特征的继电保护技术顶层设计、关键软硬件技术和检修运行技术研究，构建适应新一代智能变电站继电保护体系，研制高可靠性、高防护的就地化保护系列装置，适应电网新特性对继电保护提出的要求，推动智能变电站技术进步，引领世界继电保护技术发展方向。
+				</p>
+				
+			     <p><h5>特点和优势</h5></p>
+				 <p>
+					1.	方案特征
+					<br>1）采样数字化：保护装置直接接收电子式互感器输出数字信号，不依赖外部对时信号实现保护功能。
+					<br>2）保护就地化：保护装置采用小型化、高防护、低功耗设计，实现就地化安装，缩短信号传输距离，保障主保护的独立性和速动性。
+					<br>3）元件保护专网化：元件保护分散采集各间隔数据，装置间通过光纤直连，形成高可靠无缝冗余的内部专用网络。
+					<br>4）信息共享化：智能管理单元集中管理全站保护设备，作为保护与变电站监控的接口，采用标准通信协议，实现保护与变电站监控之间的信息共享。
+					</p>
+					<p>
+					2.保护信息交互方式<br>
+					
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					   为了提高继电保护的速动性和可靠性，保护装置采用直接接收互感器输出的数字信号和直接跳闸的方式。元件保护分散采集各间隔数据，装置间通过高可靠无缝冗余的内部专用网络交互信息。全站保护通过智能管理单元实现与变电站监控之间的信息交换。
+					</p>
+					<p>
+					3.关键技术
+					<br>1）高集成度一体化板卡。应用最新的芯片技术，实现板卡的一体化、集成化设计，实现完整的继电保护功能，压缩装置尺寸；采用先进工艺，提升保护装置抗干扰能力。
+					<br>2）高可靠防护装置。设计高可靠性、高防护、低功耗的保护硬件防护装置；实现一体化设计，模块化安装、调试。
+					<br>3）标准化连接器。装置接口标准化，实现不同厂家保护装置的通用互换，满足防水、防尘等严苛要求。
+					<br>4）元件保护高可靠专用网络。采用高可靠无缝冗余的元件保护内部专用网络，确保主变和母线保护装置内部通信的可靠性。
+					<br>5）保护间交互信息标准化，保护功能不受变电站SCD文件变动影响。
+				</p>	
+								
+				<p><h5>工程应用</h5></p>
+			    <p>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;目前已在国内4个500kV变电站和20个220kV及以下变电站内运行，正确动作率100%。<br>			
+				</p>
+				<p>
+				 <img src="./images/1-1/image004.png" style="max-width:100%" data-preview-src="" data-preview-group="1" />	
+				</p>
+				<p style="width:100%;text-align: center;font-size:12px">图2  北京四方公司就地化保护国内主要运行业绩图
+				</p>	
+				<p style="width:100%;text-align: center;font-size:12px">
+					 500kV变电站
+				    <img src="./images/1-1/image003.png" style="max-width:100%" data-preview-src="" data-preview-group="1" />	
+				</p>	
+			    <p style="width:100%;text-align: center;font-size:12px">
+				   220kV及以下变电站
+			   <img src="./images/1-1/image005.png" style="max-width:100%" data-preview-src="" data-preview-group="1" />	
+			
+			</p>
+			</div>
+		</div>
+	</body>
+	<script src="./js/mui.min.js"></script>
+	<script src="./js/mui.zoom.js"></script>
+	<script src="./js/mui.previewimage.js"></script>
+	<script>
+		mui.previewImage();
+	</script>
+
+</html>

@@ -1,0 +1,272 @@
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>CSD-812D次同步振荡监测保护装置</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta http-equiv="Expires" content="0">
+		<meta http-equiv="Pragma" content="no-cache">
+		<meta http-equiv="Cache-control" content="no-cache">
+		<meta http-equiv="Cache" content="no-cache">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="./css/mui.min.css">
+		<!--App自定义的css-->
+		<style type="text/css">
+			p{
+				color:black;
+			}
+			h5{
+				font-size:14px;	
+				font-weight: bold;
+				color:black;
+			}
+			
+			.mui-preview-image.mui-fullscreen {
+				position: fixed;
+				z-index: 20;
+				background-color: #000;
+			}
+
+			.mui-preview-header,
+			.mui-preview-footer {
+				position: absolute;
+				width: 100%;
+				left: 0;
+				z-index: 10;
+			}
+
+			.mui-preview-header {
+				height: 44px;
+				top: 0;
+			}
+
+			.mui-preview-footer {
+				height: 50px;
+				bottom: 0px;
+			}
+
+			.mui-preview-header .mui-preview-indicator {
+				display: block;
+				line-height: 25px;
+				color: #fff;
+				text-align: center;
+				margin: 15px auto 4;
+				width: 70px;
+				background-color: rgba(0, 0, 0, 0.4);
+				border-radius: 12px;
+				font-size: 16px;
+			}
+
+			.mui-preview-image {
+				display: none;
+				-webkit-animation-duration: 0.5s;
+				animation-duration: 0.5s;
+				-webkit-animation-fill-mode: both;
+				animation-fill-mode: both;
+			}
+
+			.mui-preview-image.mui-preview-in {
+				-webkit-animation-name: fadeIn;
+				animation-name: fadeIn;
+			}
+
+			.mui-preview-image.mui-preview-out {
+				background: none;
+				-webkit-animation-name: fadeOut;
+				animation-name: fadeOut;
+			}
+
+			.mui-preview-image.mui-preview-out .mui-preview-header,
+			.mui-preview-image.mui-preview-out .mui-preview-footer {
+				display: none;
+			}
+
+			.mui-zoom-scroller {
+				position: absolute;
+				display: -webkit-box;
+				display: -webkit-flex;
+				display: flex;
+				-webkit-box-align: center;
+				-webkit-align-items: center;
+				align-items: center;
+				-webkit-box-pack: center;
+				-webkit-justify-content: center;
+				justify-content: center;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				margin: 0;
+				-webkit-backface-visibility: hidden;
+			}
+
+			.mui-zoom {
+				-webkit-transform-style: preserve-3d;
+				transform-style: preserve-3d;
+			}
+
+			.mui-slider .mui-slider-group .mui-slider-item img {
+				width: auto;
+				height: auto;
+				max-width: 100%;
+				max-height: 100%;
+			}
+
+			.mui-android-4-1 .mui-slider .mui-slider-group .mui-slider-item img {
+				width: 100%;
+			}
+
+			.mui-android-4-1 .mui-slider.mui-preview-image .mui-slider-group .mui-slider-item {
+				display: inline-table;
+			}
+
+			.mui-android-4-1 .mui-slider.mui-preview-image .mui-zoom-scroller img {
+				display: table-cell;
+				vertical-align: middle;
+			}
+
+			.mui-preview-loading {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				top: 0;
+				left: 0;
+				display: none;
+			}
+
+			.mui-preview-loading.mui-active {
+				display: block;
+			}
+
+			.mui-preview-loading .mui-spinner-white {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				margin-left: -25px;
+				margin-top: -25px;
+				height: 50px;
+				width: 50px;
+			}
+
+			.mui-preview-image img.mui-transitioning {
+				-webkit-transition: -webkit-transform 0.5s ease, opacity 0.5s ease;
+				transition: transform 0.5s ease, opacity 0.5s ease;
+			}
+
+			@-webkit-keyframes fadeIn {
+				0% {
+					opacity: 0;
+				}
+
+				100% {
+					opacity: 1;
+				}
+			}
+
+			@keyframes fadeIn {
+				0% {
+					opacity: 0;
+				}
+
+				100% {
+					opacity: 1;
+				}
+			}
+
+			@-webkit-keyframes fadeOut {
+				0% {
+					opacity: 1;
+				}
+
+				100% {
+					opacity: 0;
+				}
+			}
+
+			@keyframes fadeOut {
+				0% {
+					opacity: 1;
+				}
+
+				100% {
+					opacity: 0;
+				}
+			}
+
+			p img {
+				max-width: 100%!important;
+				height: auto;
+			}
+		</style>
+
+	</head>
+
+	<body>
+		<div class="mui-content">
+			<div class="mui-content-padded">
+				<p><h5 style="font-size:15px">CSD-812D次同步振荡监测保护装置</h5></p>
+				<p style="width:100%;text-align:right">2019-03-14解决方案与产品</p>
+				<br>
+
+				<p><h5>产品概述</h5></p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;风电、光伏等新能源发电技术迅猛发展，使得电网面临频繁的次/超同步振荡干扰，安全稳定受到威胁。新能源集中接入地区电网的新型次同步振荡表现为频率宽频时变，多振荡分量并存且可远距离传播引发区域电网振荡。CSD-812D次同步振荡监测保护装置适用于对新能源厂站、新能源汇集站的进出线路的次同步/超同步振荡进行监测。
+				</p>
+				
+				<p><h5>主要功能</h5></p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CSD-812D次同步振荡检测保护装置针对大规模新能源接入系统后引起的次同步/超同步振荡问题实施监测和保护，能够快速识别产生振荡的扰动源，实现新能源接入后发生振荡时有选择性地顺序切除扰动源，从而避免系统持续振荡、保障系统的安全稳定运行。
+				</p>
+				
+
+				<h5>CSD-812D装置具备以下主要功能</h5>
+				<p>
+				■监测：实时监测测点线路的振荡频率及振荡特征参量。<br>
+				■保护：多层次的次/超同步保护功能，必要时切除振荡线路，保障区域安全。<br>
+				■诊断：提供振荡特性分析参数，为振荡源/振荡传播规律研究提供数据支撑。<br>
+				</p>	
+								
+				<p><h5>核心技术</h5></p>
+				<p>
+					■基于原始采样数据的广域宽频高精度提取，频率自适应+多振荡模式分离；<br>
+					■多特征参量（谐波频率/谐波阻抗/谐波功率/谐波电流/电压）全程在线监测；<br>
+					■全方位多层次保护功能设计，基于传播方向的谐波阻抗实时计算为四方独有；<br>
+					■灵活的保护功能配置与出口策略，依据不同应用场景，支持分组轮切与精细化切除；<br>
+					■具备多种通信接口，支持组网，构建区域次同步振荡监控系统实现高级分析应用；<br>
+				</p>
+				<p>	
+				<p><h5>工程应用</h5></p>
+			    <p>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CSD-812D实现对风电场、风电汇集站线路次/超同步振荡功率/阻抗/电流的实时监视，当测点特征量越限且持续时间满足设定，切除振荡线路，防止振荡进一步扩张，同时，装置以IEEE Std C37规约上传测点监测信息及录波数据，便于主站获取全网次/超同步振荡态势，分析振荡来源/路径，优化运行方式，确保电网安全。<br>			
+				</p>
+				<p>
+				 <img src="./images/first/1.png" style="max-width:100%" data-preview-src="" data-preview-group="1" />	
+				</p>
+				<p style="width:100%;text-align: center;font-size:12px">新能源集中接入地区次同步振荡广域监测保护系统网络结构图
+				</p>
+				<br>
+				<h4 style="text-align:center;color:royalblue">					
+					★创新铸就四方，梦想点亮未来★<br><br>
+					★Innovation Lights Our Future★ 
+				</h4>
+				<br>
+				<p style="text-align:center;font-weight:bold">
+				四方股份为您提供优质的解决方案
+				</p>	
+				<p style="text-align:center;font-weight:bold">
+				如有任何问题，请与我们联系<br>	
+				邮箱：changfujie@sf-auto.com<br>电话：18611628359
+				</p>				
+			</div>
+		</div>
+	</body>
+	<script src="./js/mui.min.js"></script>
+	<script src="./js/mui.zoom.js"></script>
+	<script src="./js/mui.previewimage.js"></script>
+	<script>
+		mui.previewImage();
+	</script>
+
+</html>

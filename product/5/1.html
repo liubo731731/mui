@@ -1,0 +1,354 @@
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>直流配电网柔性换流器</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta http-equiv="Expires" content="0">
+		<meta http-equiv="Pragma" content="no-cache">
+		<meta http-equiv="Cache-control" content="no-cache">
+		<meta http-equiv="Cache" content="no-cache">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="./css/mui.min.css">
+		<!--App自定义的css-->
+		<style type="text/css">
+			p {
+				color: black;
+			}
+
+			h5 {
+				font-size: 14px;
+				font-weight: bold;
+				color: black;
+			}
+
+			.mui-preview-image.mui-fullscreen {
+				position: fixed;
+				z-index: 20;
+				background-color: #000;
+			}
+
+			.mui-preview-header,
+			.mui-preview-footer {
+				position: absolute;
+				width: 100%;
+				left: 0;
+				z-index: 10;
+			}
+
+			.mui-preview-header {
+				height: 44px;
+				top: 0;
+			}
+
+			.mui-preview-footer {
+				height: 50px;
+				bottom: 0px;
+			}
+
+			.mui-preview-header .mui-preview-indicator {
+				display: block;
+				line-height: 25px;
+				color: #fff;
+				text-align: center;
+				margin: 15px auto 4;
+				width: 70px;
+				background-color: rgba(0, 0, 0, 0.4);
+				border-radius: 12px;
+				font-size: 16px;
+			}
+
+			.mui-preview-image {
+				display: none;
+				-webkit-animation-duration: 0.5s;
+				animation-duration: 0.5s;
+				-webkit-animation-fill-mode: both;
+				animation-fill-mode: both;
+			}
+
+			.mui-preview-image.mui-preview-in {
+				-webkit-animation-name: fadeIn;
+				animation-name: fadeIn;
+			}
+
+			.mui-preview-image.mui-preview-out {
+				background: none;
+				-webkit-animation-name: fadeOut;
+				animation-name: fadeOut;
+			}
+
+			.mui-preview-image.mui-preview-out .mui-preview-header,
+			.mui-preview-image.mui-preview-out .mui-preview-footer {
+				display: none;
+			}
+
+			.mui-zoom-scroller {
+				position: absolute;
+				display: -webkit-box;
+				display: -webkit-flex;
+				display: flex;
+				-webkit-box-align: center;
+				-webkit-align-items: center;
+				align-items: center;
+				-webkit-box-pack: center;
+				-webkit-justify-content: center;
+				justify-content: center;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				margin: 0;
+				-webkit-backface-visibility: hidden;
+			}
+
+			.mui-zoom {
+				-webkit-transform-style: preserve-3d;
+				transform-style: preserve-3d;
+			}
+
+			.mui-slider .mui-slider-group .mui-slider-item img {
+				width: auto;
+				height: auto;
+				max-width: 100%;
+				max-height: 100%;
+			}
+
+			.mui-android-4-1 .mui-slider .mui-slider-group .mui-slider-item img {
+				width: 100%;
+			}
+
+			.mui-android-4-1 .mui-slider.mui-preview-image .mui-slider-group .mui-slider-item {
+				display: inline-table;
+			}
+
+			.mui-android-4-1 .mui-slider.mui-preview-image .mui-zoom-scroller img {
+				display: table-cell;
+				vertical-align: middle;
+			}
+
+			.mui-preview-loading {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				top: 0;
+				left: 0;
+				display: none;
+			}
+
+			.mui-preview-loading.mui-active {
+				display: block;
+			}
+
+			.mui-preview-loading .mui-spinner-white {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				margin-left: -25px;
+				margin-top: -25px;
+				height: 50px;
+				width: 50px;
+			}
+
+			.mui-preview-image img.mui-transitioning {
+				-webkit-transition: -webkit-transform 0.5s ease, opacity 0.5s ease;
+				transition: transform 0.5s ease, opacity 0.5s ease;
+			}
+
+			@-webkit-keyframes fadeIn {
+				0% {
+					opacity: 0;
+				}
+
+				100% {
+					opacity: 1;
+				}
+			}
+
+			@keyframes fadeIn {
+				0% {
+					opacity: 0;
+				}
+
+				100% {
+					opacity: 1;
+				}
+			}
+
+			@-webkit-keyframes fadeOut {
+				0% {
+					opacity: 1;
+				}
+
+				100% {
+					opacity: 0;
+				}
+			}
+
+			@keyframes fadeOut {
+				0% {
+					opacity: 1;
+				}
+
+				100% {
+					opacity: 0;
+				}
+			}
+
+			p img {
+				max-width: 100% !important;
+				height: auto;
+			}
+		</style>
+
+	</head>
+
+	<body>
+		<div class="mui-content">
+			<div class="mui-content-padded">
+				<p style="width:100%;text-align:center">
+					<h5 style="font-size:15px;width:100%;text-align: center;">直流配电网柔性换流器</h5>
+				</p>
+
+
+
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					基于柔性直流技术的直流配电网具有供电容量大、线路损耗小、电能质量高、无需无功补偿、有利于新能源和储能装置接入等优点，逐渐成为适应现代城市发展规划和能源互联网发展的关键技术之一。
+				</p>
+				<p style="text-align:center">
+					<img src="./images/5-1/image1.png" style="max-width:100%" data-preview-src="" data-preview-group="1" />
+				</p>
+				<p style="width:100%;text-align: center;font-size:12px">直流配电网典型应用场景
+				</p>
+
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					换流阀作为直流配电网物理层的核心设备，可实现交直流能量变换，有功无功功率快速支撑，潮流快速转移等功能，为应用层的灵活调度提供了坚实基础，是直流配电网与传统电网交互的关键环节，其能否可靠、稳定运行决定了整个系统的性能。
+				</p>
+				<p style="text-align:center">
+					<img src="./images/5-1/image2.jpeg" style="max-width:100%" data-preview-src="" data-preview-group="1" />
+				</p>
+				<p style="text-align:center">
+					<img src="./images/5-1/image3.png" style="max-width:100%" data-preview-src="" data-preview-group="1" />
+				</p>
+
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					灵活高效供电、可靠故障应对能力是构建现代直流配电网的基础。四方公司研制了半桥型（配合直流断路器）、钳位子模块型及全半桥混合型等多种拓扑方案的MMC换流阀，可满足交流侧快速并离网切换、直流侧故障快速阻断及穿越的应用需求。
+				</p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					针对直流配电网运行需求的不同，四方公司研制了适用于不同功能需求的多种MMC换流阀，在近年来取得了如下业绩：
+				</p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					2018年——广东佛山“智能配电柔性多状态开关关键技术装备研发及示范应用”，提供±10kV/6MVA/6MVA/6MVA三端MMC换流器及其控制保护系统。
+				</p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					2018年——广东珠海“互联网+”智慧能源示范工程，提供±10kV/10MVA MMC换流阀及多端直流配电网全套控制保护系统。
+				</p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					2017年——贵州省、南方电网重点科技项目，城市配电网柔性互联关键设备及技术研究，四方公司总包本项目，提供包括四端MMC换流器、电力电子变压器、储能光伏换流器、直流充电桩、直流中心控制保护系统、交直流微电网控制保护系统、能量管理系统等全部产品。
+				</p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					2017年：国家重点研发计划，交直流混合的分布式可再生能源关键技术、核心装备和工程示范研究，提供多种分布式可再生能源互补优化运行控制技术。
+				</p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					2016年：国家重点研发计划，大型光伏电站直流升压汇集接入关键技术及设备研制，提供±35kV/5MVA MMC换流阀及其控制保护系统。
+
+				</p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					2015年：国家863计划，直流配电网中多端柔性直流系统控制保护关键技术，提供直流配网控制保护系统。
+				</p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					2012年：国家863计划，油田群智能配网综合集成与示范，提供±5kV/500kVA双端柔性直流输电换流站。
+
+				</p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					在上述项目中四方研制多种拓扑、容量、功能的MMC换流阀并在现场成功应用。
+				</p>
+	            <p style="text-align:center">
+					<img src="./images/5-1/image4.png" style="max-width:100%" data-preview-src="" data-preview-group="1" />
+				</p>
+				 <p style="text-align:center">
+					<img src="./images/5-1/image5.png" style="max-width:100%" data-preview-src="" data-preview-group="1" />
+				</p>
+				<p style="text-align:center;width:100%">
+				     4500V/3000A压接器件的半桥模块
+				</p>	
+				<br>
+				
+				<p style="text-align:center">
+					<img src="./images/5-1/image6.jpeg" style="max-width:100%" data-preview-src="" data-preview-group="1" />
+				</p>
+				 <p style="text-align:center">
+					<img src="./images/5-1/image7.png" style="max-width:100%" data-preview-src="" data-preview-group="1" />
+				</p>
+				<p style="text-align:center;width:100%">
+				    4500V/3000A压接器件的全桥模块
+				</p>
+				<br>
+				
+				<p style="text-align:center">
+					<img src="./images/5-1/image8.png" style="max-width:100%" data-preview-src="" data-preview-group="1" />
+				</p>
+				 <p style="text-align:center">
+					<img src="./images/5-1/image9.png" style="max-width:100%" data-preview-src="" data-preview-group="1" />
+				</p>
+				<p style="text-align:center;width:100%">
+				    4500V/3000A压接器件的全桥模块
+				</p>
+				<br>
+				
+				<p style="text-align:center">
+					<img src="./images/5-1/image10.jpeg" style="max-width:100%" data-preview-src="" data-preview-group="1" />
+				</p>
+				 <p style="text-align:center">
+					<img src="./images/5-1/image11.jpeg" style="max-width:100%" data-preview-src="" data-preview-group="1" />
+				</p>
+				<p style="text-align:center;width:100%">
+				    10MVA直流配电网枢纽变换器（IGCT钳位型半桥子模块拓扑）
+				</p>
+				<br>
+				
+				<p style="text-align:center">
+					<img src="./images/5-1/image12.jpeg" style="max-width:100%" data-preview-src="" data-preview-group="1" />
+				</p>
+				<p style="text-align:center;width:100%">
+				    10MVA背靠背MMC交流测试电源（全半桥混合子模块拓扑）
+				</p>
+				<br>
+				
+				<p style="text-align:center">
+					<img src="./images/5-1/image13.jpeg" style="max-width:100%" data-preview-src="" data-preview-group="1" />
+				</p>
+				<p style="text-align:center;width:100%">
+				    500kWMMC型直流电源（纯全桥子模块拓扑）
+				</p>
+				<br>
+				
+				<p style="text-align:center">
+					<img src="./images/5-1/image14.png" style="max-width:100%" data-preview-src="" data-preview-group="1" />
+				</p>
+				<p style="text-align:center;width:100%">
+				   ±10kV/10MVA IGCT交叉混合型柔性换流阀型式试验报告
+				</p>
+				<br>
+				
+				<p style="text-align:center">
+					<img src="./images/5-1/image15.png" style="max-width:100%" data-preview-src="" data-preview-group="1" />
+				</p>
+				<p style="text-align:center;width:100%">
+				  ±10kV/1MVA 全半桥混合型柔性换流阀型式试验报告
+				</p>
+				<br>
+			</div>
+		</div>
+	</body>
+	<script src="./js/mui.min.js"></script>
+	<script src="./js/mui.zoom.js"></script>
+	<script src="./js/mui.previewimage.js"></script>
+	<script>
+		mui.previewImage();
+	</script>
+
+</html>

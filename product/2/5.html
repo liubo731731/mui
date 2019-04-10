@@ -1,0 +1,321 @@
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>海上风电施工安全保障与应急指挥系统</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta http-equiv="Expires" content="0">
+		<meta http-equiv="Pragma" content="no-cache">
+		<meta http-equiv="Cache-control" content="no-cache">
+		<meta http-equiv="Cache" content="no-cache">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="./css/mui.min.css">
+		<!--App自定义的css-->
+		<style type="text/css">
+			p{
+				color:black;
+			}
+			h5{
+				font-size:14px;	
+				font-weight: bold;
+				color:black;
+			}
+			
+			.mui-preview-image.mui-fullscreen {
+				position: fixed;
+				z-index: 20;
+				background-color: #000;
+			}
+
+			.mui-preview-header,
+			.mui-preview-footer {
+				position: absolute;
+				width: 100%;
+				left: 0;
+				z-index: 10;
+			}
+
+			.mui-preview-header {
+				height: 44px;
+				top: 0;
+			}
+
+			.mui-preview-footer {
+				height: 50px;
+				bottom: 0px;
+			}
+
+			.mui-preview-header .mui-preview-indicator {
+				display: block;
+				line-height: 25px;
+				color: #fff;
+				text-align: center;
+				margin: 15px auto 4;
+				width: 70px;
+				background-color: rgba(0, 0, 0, 0.4);
+				border-radius: 12px;
+				font-size: 16px;
+			}
+
+			.mui-preview-image {
+				display: none;
+				-webkit-animation-duration: 0.5s;
+				animation-duration: 0.5s;
+				-webkit-animation-fill-mode: both;
+				animation-fill-mode: both;
+			}
+
+			.mui-preview-image.mui-preview-in {
+				-webkit-animation-name: fadeIn;
+				animation-name: fadeIn;
+			}
+
+			.mui-preview-image.mui-preview-out {
+				background: none;
+				-webkit-animation-name: fadeOut;
+				animation-name: fadeOut;
+			}
+
+			.mui-preview-image.mui-preview-out .mui-preview-header,
+			.mui-preview-image.mui-preview-out .mui-preview-footer {
+				display: none;
+			}
+
+			.mui-zoom-scroller {
+				position: absolute;
+				display: -webkit-box;
+				display: -webkit-flex;
+				display: flex;
+				-webkit-box-align: center;
+				-webkit-align-items: center;
+				align-items: center;
+				-webkit-box-pack: center;
+				-webkit-justify-content: center;
+				justify-content: center;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				margin: 0;
+				-webkit-backface-visibility: hidden;
+			}
+
+			.mui-zoom {
+				-webkit-transform-style: preserve-3d;
+				transform-style: preserve-3d;
+			}
+
+			.mui-slider .mui-slider-group .mui-slider-item img {
+				width: auto;
+				height: auto;
+				max-width: 100%;
+				max-height: 100%;
+			}
+
+			.mui-android-4-1 .mui-slider .mui-slider-group .mui-slider-item img {
+				width: 100%;
+			}
+
+			.mui-android-4-1 .mui-slider.mui-preview-image .mui-slider-group .mui-slider-item {
+				display: inline-table;
+			}
+
+			.mui-android-4-1 .mui-slider.mui-preview-image .mui-zoom-scroller img {
+				display: table-cell;
+				vertical-align: middle;
+			}
+
+			.mui-preview-loading {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				top: 0;
+				left: 0;
+				display: none;
+			}
+
+			.mui-preview-loading.mui-active {
+				display: block;
+			}
+
+			.mui-preview-loading .mui-spinner-white {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				margin-left: -25px;
+				margin-top: -25px;
+				height: 50px;
+				width: 50px;
+			}
+
+			.mui-preview-image img.mui-transitioning {
+				-webkit-transition: -webkit-transform 0.5s ease, opacity 0.5s ease;
+				transition: transform 0.5s ease, opacity 0.5s ease;
+			}
+
+			@-webkit-keyframes fadeIn {
+				0% {
+					opacity: 0;
+				}
+
+				100% {
+					opacity: 1;
+				}
+			}
+
+			@keyframes fadeIn {
+				0% {
+					opacity: 0;
+				}
+
+				100% {
+					opacity: 1;
+				}
+			}
+
+			@-webkit-keyframes fadeOut {
+				0% {
+					opacity: 1;
+				}
+
+				100% {
+					opacity: 0;
+				}
+			}
+
+			@keyframes fadeOut {
+				0% {
+					opacity: 1;
+				}
+
+				100% {
+					opacity: 0;
+				}
+			}
+
+            .right-arrow {  
+                 display :inline-block;
+                 position: relative;
+                 width: 28px;
+                 height: 28px;
+                 }
+			.right-arrow::after {
+				  display: inline-block;
+				  content: " ";
+				  height: 13px;
+				  width: 13px;
+				  border-width: 2px 2px 0 0;
+				  border-color: #0177ff;
+				  border-style: solid;
+				  transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+				  position: absolute;
+				  top: 50%;
+
+			p img {
+				max-width: 100%!important;
+				height: auto;
+			}
+		</style>
+
+	</head>
+
+	<body>
+		<div class="mui-content">
+			<div class="mui-content-padded">
+
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;海上风电为新能源发展拉开了新的一页，风电行业走向新的高峰。在海洋环境中，风电的建设和运营面临新的问题，尤以建设过程中恶劣天气与环境造成的施工安全问题最为突出紧要。四方公司结合多年监控、通信、视频安防产品与技术积累，开发海上风电施工安全保障与应急指挥系统，为海上风电建设提供安全保障。
+				</p>
+				<p>
+					<img src="./images/third/image001.png" style="max-width:100%" data-preview-src="" data-preview-group="1" />
+				</p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;四方海上风电施工安全保障与应急指挥系统，为海上风电施工定制，跨越海上风电施工期的“三无、三多、二不便”的信息系统建设与使用障碍，实现施工过程的风险可控、远程可见、主动防护、智能作业。
+
+				</p>
+				<p>
+					<img src="./images/third/image002.png" style="max-width:100%" data-preview-src="" data-preview-group="1" />
+				</p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;四方海上风电施工安全保障与应急指挥系统采用智能可穿戴防护设备、物联网传输方式、智能识别技术等，与传统应急指挥系统相比具有多项优势。
+				
+				</p>
+				<p>
+					<img src="./images/third/image003.png" style="max-width:100%" data-preview-src="" data-preview-group="1" />
+				</p>
+				
+				<p>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;四方海上风电施工安全保障与应急指挥系统采用三级结构，包括穿戴式智能防护终端、船载监护平台、指挥中心平台。系统配置灵活、多类设备可选，按作业区域气候环境、离岸距离、人员数量等特征配置。
+				</p>
+				<p>
+					<img src="./images/third/image004.png" style="max-width:100%" data-preview-src="" data-preview-group="1" />
+				</p>
+				
+				<p><span class="right-arrow"></span>智能防护终端采用多种设备配合形式，主动防护并透明化搜集现场信息，包括：智能一体化安全头盔、智能救生衣、手环等可穿戴智能防护设备，及低耗标记终端。穿戴防护设备具备安全防护、视频传输、远程协助、人员定位、主动预警、状态监测、身份识别能力。低耗标记终端提供危险区域标识、任务与危险反馈功能，具有自给电力、主动预警、主动传输、蓝牙抗扰、主动匹配的特征。
+				</p>
+				<p>
+					<img src="./images/third/image005.png" style="max-width:100%" data-preview-src="" data-preview-group="1" />
+				</p>
+				
+				
+				<p><span class="right-arrow"></span>船载便携监护平台采用一体化小型机柜方式，WEB或APP方式使用，实时监护现场人员状态，提供危险告警、人员状态告警、营救辅助告警、现场交互、施工进度，包括：一体服务器、新型局域物联路由、远程无线传输CSU。作为四方公司特殊定制研发的船载传输设备，远程无线传输CSU具备自建网络、动态码率、可调带宽、中继处理等功能，支持0-40KM通讯，可无中继覆盖80%海上风电施工海域。
+	            <p>
+					<img src="./images/third/image006.png" style="max-width:100%" data-preview-src="" data-preview-group="1" />
+				</p>
+				<br>
+				<p>
+					<img src="./images/third/image007.png" style="max-width:100%" data-preview-src="" data-preview-group="1" />
+				</p>
+				<p style="text-align:center;width:100%">船载监控平台-视频监视对话</p>
+				
+				<br>
+				<p><span class="right-arrow"></span>指挥中心平台采用WEB方式部署，与船载监护平台通信，获取施工信息、监视现场情况，采用信息展示、三维还原、智能分析方式，进行施工作业进度控制、人员管理、作业方式优化、远程指导功能，实现施工风险控制、作业安全辅助、紧急救援指挥。</p>
+	            <p>
+					<img src="./images/third/image008.png" style="max-width:100%" data-preview-src="" data-preview-group="1" />
+				</p>
+	            <p>
+					<img src="./images/third/image009.jpg" style="max-width:100%" data-preview-src="" data-preview-group="1" />
+				</p>
+				<p>
+				<img src="./images/third/image010.jpg" style="max-width:100%" data-preview-src="" data-preview-group="1" />
+			    </p>
+			
+				<p style="text-align:center;width:100%">指挥中心平台-施工进度查看</p>
+	            	<br>
+				 <p>
+					<img src="./images/third/image011.jpg" style="max-width:100%" data-preview-src="" data-preview-group="1" />
+				</p>
+				<p style="text-align:center;width:100%">指挥中心平台-人员监控防护</p>
+				<br>
+				<h4 style="text-align:center;color:royalblue">					
+					★创新铸就四方，梦想点亮未来★<br><br>
+					★Innovation Lights Our Future★ 
+				</h4>
+				<br>
+				<p style="text-align:center;font-weight:bold">
+				四方股份为您提供优质的解决方案
+				</p>	
+				<p style="text-align:center;font-weight:bold">
+				如有任何问题，请与四方股份解决方案与产品中心联系<br>	
+				技术沟通联络邮箱：chuyanjun@sf-auto.com<br>技术沟通联系电话：18515512632
+				</p>
+				<p><h5>封页图</h5></p>
+				<p>
+                   <img src="./images/third/image009.jpg" style="max-width:100%" data-preview-src="" data-preview-group="1" />				</p>
+				<p><h5>封页摘要:</h5></p>
+				<p>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;四方海上风电施工安全保障与应急指挥系统，为海上风电施工定制，跨越海上风电施工期的“三无、三多、二不便”的信息系统建设与使用障碍，实现施工过程的风险可控、远程可见、主动防护、智能作业.
+				</p>
+				
+			</div>
+		</div>
+	</body>
+	<script src="./js/mui.min.js"></script>
+	<script src="./js/mui.zoom.js"></script>
+	<script src="./js/mui.previewimage.js"></script>
+	<script>
+		mui.previewImage();
+	</script>
+
+</html>

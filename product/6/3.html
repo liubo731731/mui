@@ -1,0 +1,284 @@
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>SF-RTSIM 实时数字仿真系统</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta http-equiv="Expires" content="0">
+		<meta http-equiv="Pragma" content="no-cache">
+		<meta http-equiv="Cache-control" content="no-cache">
+		<meta http-equiv="Cache" content="no-cache">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="./css/mui.min.css">
+		<!--App自定义的css-->
+		<style type="text/css">
+			p {
+				color: black;
+			}
+
+			h5 {
+				font-size: 14px;
+				font-weight: bold;
+				color: black;
+			}
+
+			.mui-preview-image.mui-fullscreen {
+				position: fixed;
+				z-index: 20;
+				background-color: #000;
+			}
+
+			.mui-preview-header,
+			.mui-preview-footer {
+				position: absolute;
+				width: 100%;
+				left: 0;
+				z-index: 10;
+			}
+
+			.mui-preview-header {
+				height: 44px;
+				top: 0;
+			}
+
+			.mui-preview-footer {
+				height: 50px;
+				bottom: 0px;
+			}
+
+			.mui-preview-header .mui-preview-indicator {
+				display: block;
+				line-height: 25px;
+				color: #fff;
+				text-align: center;
+				margin: 15px auto 4;
+				width: 70px;
+				background-color: rgba(0, 0, 0, 0.4);
+				border-radius: 12px;
+				font-size: 16px;
+			}
+
+			.mui-preview-image {
+				display: none;
+				-webkit-animation-duration: 0.5s;
+				animation-duration: 0.5s;
+				-webkit-animation-fill-mode: both;
+				animation-fill-mode: both;
+			}
+
+			.mui-preview-image.mui-preview-in {
+				-webkit-animation-name: fadeIn;
+				animation-name: fadeIn;
+			}
+
+			.mui-preview-image.mui-preview-out {
+				background: none;
+				-webkit-animation-name: fadeOut;
+				animation-name: fadeOut;
+			}
+
+			.mui-preview-image.mui-preview-out .mui-preview-header,
+			.mui-preview-image.mui-preview-out .mui-preview-footer {
+				display: none;
+			}
+
+			.mui-zoom-scroller {
+				position: absolute;
+				display: -webkit-box;
+				display: -webkit-flex;
+				display: flex;
+				-webkit-box-align: center;
+				-webkit-align-items: center;
+				align-items: center;
+				-webkit-box-pack: center;
+				-webkit-justify-content: center;
+				justify-content: center;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				margin: 0;
+				-webkit-backface-visibility: hidden;
+			}
+
+			.mui-zoom {
+				-webkit-transform-style: preserve-3d;
+				transform-style: preserve-3d;
+			}
+
+			.mui-slider .mui-slider-group .mui-slider-item img {
+				width: auto;
+				height: auto;
+				max-width: 100%;
+				max-height: 100%;
+			}
+
+			.mui-android-4-1 .mui-slider .mui-slider-group .mui-slider-item img {
+				width: 100%;
+			}
+
+			.mui-android-4-1 .mui-slider.mui-preview-image .mui-slider-group .mui-slider-item {
+				display: inline-table;
+			}
+
+			.mui-android-4-1 .mui-slider.mui-preview-image .mui-zoom-scroller img {
+				display: table-cell;
+				vertical-align: middle;
+			}
+
+			.mui-preview-loading {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				top: 0;
+				left: 0;
+				display: none;
+			}
+
+			.mui-preview-loading.mui-active {
+				display: block;
+			}
+
+			.mui-preview-loading .mui-spinner-white {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				margin-left: -25px;
+				margin-top: -25px;
+				height: 50px;
+				width: 50px;
+			}
+
+			.mui-preview-image img.mui-transitioning {
+				-webkit-transition: -webkit-transform 0.5s ease, opacity 0.5s ease;
+				transition: transform 0.5s ease, opacity 0.5s ease;
+			}
+
+			@-webkit-keyframes fadeIn {
+				0% {
+					opacity: 0;
+				}
+
+				100% {
+					opacity: 1;
+				}
+			}
+
+			@keyframes fadeIn {
+				0% {
+					opacity: 0;
+				}
+
+				100% {
+					opacity: 1;
+				}
+			}
+
+			@-webkit-keyframes fadeOut {
+				0% {
+					opacity: 1;
+				}
+
+				100% {
+					opacity: 0;
+				}
+			}
+
+			@keyframes fadeOut {
+				0% {
+					opacity: 1;
+				}
+
+				100% {
+					opacity: 0;
+				}
+			}
+
+			p img {
+				max-width: 100% !important;
+				height: auto;
+			}
+		</style>
+
+	</head>
+
+	<body>
+		<div class="mui-content">
+			<div class="mui-content-padded">
+				<p style="width:100%;text-align:center">
+					<h5 style="font-size:15px;width:100%;text-align: center;">SF-RTSIM 实时数字仿真系统</h5>
+				</p>
+				<p>
+					<h5>概述</h5>
+				</p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SF-RTSIM实时数字仿真系统，适用于电力电子、控制等领域的半实物实时仿真验证测试。SF-RTSIM系统具有丰富的对外接口，并依托于Matlab/Simulink软件，建立了实时仿真库，有效的达到半实物实时数字仿真的目的，为电力电子控制系统的验证试验、保护系统的验证试验以及自动测试等领域提供实时仿真测试平台。
+				</p>
+
+				<p>
+					<h5>功能介绍</h5>
+				</p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SF-RTSIM实时数字仿真系统可以应用到电力、控制或其他各种领域。电力电子领域可以用于电力电子控制器研发过程中的测试，验证电力电子控制器控制功能、保护功能等，同时可以模拟多种实物无法给出的工况（短路、频率突变、电压突变等），有效验证电力电子控制器、保护产品功能，防止控制器直接投运测试时，因为控制器缺陷导致的电力电子器件损坏，功能验证不全等不利工况发生。目前SF-RTSIM已经参与到了公司储能换流器、SVG链式无功补偿器、MMC链式混合桥拓扑直流换流器、柔性直流换流器、常规保护等场景的测试验证。
+				</p>
+				<p>
+					<img src="./images/6-3/image002.png" style="max-width:100%" data-preview-src="" data-preview-group="1" />
+				</p>
+				<p style="width:100%;text-align:center">图1 SF-RTSIM实时数字仿真系统组成</p>
+				<br>
+
+				<p>
+					<h5>SF-RTSIM组成</h5>
+				</p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SF-RTSIM实时数字仿真系统由Host主控计算机、实时仿真目标机和接口/运算加速装置构成。Host主控计算机借助Matlab/Simulink及SF-RTSIM工具箱进行模型搭建、GUI界面显示、波形触发存储、实时参数调节等；实时仿真目标机则实现物理模型的实时运行、波形实时显示等功能；接口/运算加速装置则主要负责链式结构模型的FPGA加速运算，以及多种接口的驱动管理。系统为电力电子控制、保护系统提供了丰富的实时模型、实时测试解决方案与平台支撑。</p>
+
+
+				<p>
+					<h5>系统优势</h5>
+				</p>
+				<ol style="font-size:14px">
+					<li>依托Matlab/Simulink，模型丰富，运行稳定</li>
+					<li>支持全桥、半桥、混合桥等链式结构，并采用FPGA加速运算，小步长可达1us</li>
+					<li>硬件软件自主研发，成本低廉</li>
+					<li>接口丰富，并可根据需求进行定制</li>
+					<li>模型可定制搭建</li>
+				</ol>
+				<p>
+					<h5>系统照片及模型示例</h5>
+				</p>
+				<p>
+					<img src="./images/6-3/image003.jpg" style="max-width:100%" data-preview-src="" data-preview-group="1" />
+				</p>
+				<p style="width:100%;text-align:center">图2 SF-RTSIM实时数字仿真系统照片</p>
+
+				<p>
+					<img src="./images/6-3/image005.png" style="max-width:100%" data-preview-src="" data-preview-group="1" />
+				</p>
+				<p style="width:100%;text-align:center">图3 单端柔性直流实时数字仿真模型</p>
+				<br>
+				<h4 style="text-align:center;color:royalblue">
+					★创新铸就四方，梦想点亮未来★<br><br>
+					★Innovation Lights Our Future★
+				</h4>
+				<br>
+				<p style="text-align:center;font-weight:bold">
+					四方股份为您提供优质的解决方案 
+				</p>
+				<p style="text-align:center;font-weight:bold">
+					如有任何问题，请与我们联系<br>
+					邮箱：jiahailin@sf-auto.com<br>电话：15110053460
+				</p>
+
+			</div>
+		</div>
+	</body>
+	<script src="./js/mui.min.js"></script>
+	<script src="./js/mui.zoom.js"></script>
+	<script src="./js/mui.previewimage.js"></script>
+	<script>
+		mui.previewImage();
+	</script>
+
+</html>

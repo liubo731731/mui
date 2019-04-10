@@ -1,0 +1,273 @@
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>基于图像智能分析的设备状态识别系统</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta http-equiv="Expires" content="0">
+		<meta http-equiv="Pragma" content="no-cache">
+		<meta http-equiv="Cache-control" content="no-cache">
+		<meta http-equiv="Cache" content="no-cache">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="./css/mui.min.css">
+		<!--App自定义的css-->
+		<style type="text/css">
+			p{
+				color:black;
+			}
+			h5{
+				font-size:14px;	
+				font-weight: bold;
+				color:black;
+			}
+			
+			.mui-preview-image.mui-fullscreen {
+				position: fixed;
+				z-index: 20;
+				background-color: #000;
+			}
+
+			.mui-preview-header,
+			.mui-preview-footer {
+				position: absolute;
+				width: 100%;
+				left: 0;
+				z-index: 10;
+			}
+
+			.mui-preview-header {
+				height: 44px;
+				top: 0;
+			}
+
+			.mui-preview-footer {
+				height: 50px;
+				bottom: 0px;
+			}
+
+			.mui-preview-header .mui-preview-indicator {
+				display: block;
+				line-height: 25px;
+				color: #fff;
+				text-align: center;
+				margin: 15px auto 4;
+				width: 70px;
+				background-color: rgba(0, 0, 0, 0.4);
+				border-radius: 12px;
+				font-size: 16px;
+			}
+
+			.mui-preview-image {
+				display: none;
+				-webkit-animation-duration: 0.5s;
+				animation-duration: 0.5s;
+				-webkit-animation-fill-mode: both;
+				animation-fill-mode: both;
+			}
+
+			.mui-preview-image.mui-preview-in {
+				-webkit-animation-name: fadeIn;
+				animation-name: fadeIn;
+			}
+
+			.mui-preview-image.mui-preview-out {
+				background: none;
+				-webkit-animation-name: fadeOut;
+				animation-name: fadeOut;
+			}
+
+			.mui-preview-image.mui-preview-out .mui-preview-header,
+			.mui-preview-image.mui-preview-out .mui-preview-footer {
+				display: none;
+			}
+
+			.mui-zoom-scroller {
+				position: absolute;
+				display: -webkit-box;
+				display: -webkit-flex;
+				display: flex;
+				-webkit-box-align: center;
+				-webkit-align-items: center;
+				align-items: center;
+				-webkit-box-pack: center;
+				-webkit-justify-content: center;
+				justify-content: center;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				margin: 0;
+				-webkit-backface-visibility: hidden;
+			}
+
+			.mui-zoom {
+				-webkit-transform-style: preserve-3d;
+				transform-style: preserve-3d;
+			}
+
+			.mui-slider .mui-slider-group .mui-slider-item img {
+				width: auto;
+				height: auto;
+				max-width: 100%;
+				max-height: 100%;
+			}
+
+			.mui-android-4-1 .mui-slider .mui-slider-group .mui-slider-item img {
+				width: 100%;
+			}
+
+			.mui-android-4-1 .mui-slider.mui-preview-image .mui-slider-group .mui-slider-item {
+				display: inline-table;
+			}
+
+			.mui-android-4-1 .mui-slider.mui-preview-image .mui-zoom-scroller img {
+				display: table-cell;
+				vertical-align: middle;
+			}
+
+			.mui-preview-loading {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				top: 0;
+				left: 0;
+				display: none;
+			}
+
+			.mui-preview-loading.mui-active {
+				display: block;
+			}
+
+			.mui-preview-loading .mui-spinner-white {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				margin-left: -25px;
+				margin-top: -25px;
+				height: 50px;
+				width: 50px;
+			}
+
+			.mui-preview-image img.mui-transitioning {
+				-webkit-transition: -webkit-transform 0.5s ease, opacity 0.5s ease;
+				transition: transform 0.5s ease, opacity 0.5s ease;
+			}
+
+			@-webkit-keyframes fadeIn {
+				0% {
+					opacity: 0;
+				}
+
+				100% {
+					opacity: 1;
+				}
+			}
+
+			@keyframes fadeIn {
+				0% {
+					opacity: 0;
+				}
+
+				100% {
+					opacity: 1;
+				}
+			}
+
+			@-webkit-keyframes fadeOut {
+				0% {
+					opacity: 1;
+				}
+
+				100% {
+					opacity: 0;
+				}
+			}
+
+			@keyframes fadeOut {
+				0% {
+					opacity: 1;
+				}
+
+				100% {
+					opacity: 0;
+				}
+			}
+
+			p img {
+				max-width: 100%!important;
+				height: auto;
+			}
+		</style>
+
+	</head>
+
+	<body>
+		<div class="mui-content">
+			<div class="mui-content-padded">
+				<p style="width:100%;text-align:center"><h5 style="font-size:15px;width:100%;text-align: center;">基于图像智能分析的设备状态识别系统</h5></p>
+				<br>
+				<p><h5>概述</h5></p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;电力人工智能是能将人工智能的相关理论和方法与电力行业应用相融合的新兴领域，在电网建设和运维业务中引入人工智能技术手段，达到传统方法无法实现的应用成效。
+				</p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;基于图像智能分析的设备状态识别系统，采用非接触的安装和采集方式，在不影响现有系统正常运行的情况下部署，适合电力业务的应用场景。国家电网和南方电网都在积极投入进行相关研究与实验。通过摄像机实时采集设备图像，进行图像分析和目标状态智能识别，可用于一键顺控刀闸状态双确认、电力自动巡检等高级应用。
+				</p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;四方公司在此方向进行了探索，结合机器学习、图像识别等技术，在智能变电站高级应用中，实现了基于图像智能分析的刀闸、压板等设备状态识别功能。2018年在湖北随州供电公司试点，在国网范围内首次实现一键顺控双确认视频分析应用，得到用户的好评，产品获得湖北省电力公司“青创赛”一等奖。目前系统的识别准确率处于行业领先水平，并率先实现了智能分析、61850上送、图像联动等完整一键顺控双确认配套应用。
+				</p>
+				<p><h5>关键技术</h5></p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;基于图像智能分析的设备状态识别采用了深度学习和图像识别技术相结合的方式，结合视频系统采集的图像，进行防抖动处理，输入到智能分析系统中进行识别，识别结果与SCADA监控系统的状态进行闭环，完成一键顺控刀闸双确认的交互流程。
+				</p>
+					<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;深度学习技术采用基于Caffe和Darknet等高性能深度学习库，对同类样本进行标记和训练，训练后形成辨识模型，在应用现场通过调优的辨识模型对样本进行目标状态计算。经测试，采用深度学习技术对同类刀闸的目标状态识别正确率达97%以上。
+				</p>
+					<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;图像识别技术采用openCV和matlab等成熟的图像处理框架，对缺乏训练样本的场景，提取样本图像的特征分量，并与采集图像进行特征比对，实现目标状态的识别。
+				</p>
+					<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;视频系统摄像头抖动和位移是实际应用中识别效果影响较大的因素，为此在两种模式处理之前采用了图像防抖动算法，可处理横向15%位移，纵向10%位移，实际应用效果良好。
+				</p>
+				<p><h5>系统结构</h5></p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;图像智能分析主机与视频系统部署在变电站安全III区，采集站端布置的高清摄像头视频，经过智能分析主机处理和状态检测，将识别状态通过隔离装置发送到安全I区，供一键顺控主机做刀闸状态双确认的辅助判据。
+				
+				</p>
+				<p style="text-align:center">
+				 <img src="./images/1-3/image001.png" style="max-width:100%" data-preview-src="" data-preview-group="1" />	
+				</p>
+
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;图像智能分析软件系统集成了视频设备管理、图像预览、识别区域标注、SCADA标识管理、视频采集、图像智能分析算法库、SCADA系统通信等模块。
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;其中，图像智能分析模块实现了对目标的检测区域、状态、可信度的处理和展示。
+				</p>
+						<p style="text-align:center">
+				 <img src="./images/1-3/image003.png" style="max-width:100%" data-preview-src="" data-preview-group="1" />	
+				</p>
+			     <p><h5>系统优势</h5></p>
+				 <p>
+					<ol style="font-size:14px">
+				  <li>状态识别准确率高，在安装无干扰的情况下，准确率可达到97%以上；</li>
+				  <li>部署效率高，针对同类设备可不用重新训练模型，实时部署实时运行</li>
+				  <li>适应性高，内置防抖动算法，允许一定程度的摄像头抖动和位移</li>
+				    <li>辨识模型可以适应全天候的天气条件，受环境和光照影响小；</li>
+				  <li>图像特征比对方法对样本数量要求低，便于工程实施；</li>
+				  <li>快速安装部署，非接触式安装，不影响变电站设备正常运行；</li>
+				    <li>应用领域广，可用于其他代替人工的设备巡检场景，例如变压器套管、呼吸器状态、GIS指示牌、仪表状态检测等；</li>
+				  <li>深度学习方法可应用于变压器声纹等非图像场景，应用领域广；</li>
+                   </ol>
+					</p>
+			<br>
+				<h4 style="text-align:center;color:royalblue">					
+					★创新铸就四方，梦想点亮未来★<br><br>
+					★Innovation Lights Our Future★ 
+				</h4>
+				<br>
+
+			</div>
+		</div>
+	</body>
+	<script src="./js/mui.min.js"></script>
+	<script src="./js/mui.zoom.js"></script>
+	<script src="./js/mui.previewimage.js"></script>
+	<script>
+		mui.previewImage();
+	</script>
+
+</html>

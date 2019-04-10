@@ -1,0 +1,282 @@
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>基于人工智能的风电场视频巡检系统</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta http-equiv="Expires" content="0">
+		<meta http-equiv="Pragma" content="no-cache">
+		<meta http-equiv="Cache-control" content="no-cache">
+		<meta http-equiv="Cache" content="no-cache">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="./css/mui.min.css">
+		<!--App自定义的css-->
+		<style type="text/css">
+			p{
+				color:black;
+			}
+			h5{
+				font-size:14px;	
+				font-weight: bold;
+				color:black;
+			}
+			
+			.mui-preview-image.mui-fullscreen {
+				position: fixed;
+				z-index: 20;
+				background-color: #000;
+			}
+
+			.mui-preview-header,
+			.mui-preview-footer {
+				position: absolute;
+				width: 100%;
+				left: 0;
+				z-index: 10;
+			}
+
+			.mui-preview-header {
+				height: 44px;
+				top: 0;
+			}
+
+			.mui-preview-footer {
+				height: 50px;
+				bottom: 0px;
+			}
+
+			.mui-preview-header .mui-preview-indicator {
+				display: block;
+				line-height: 25px;
+				color: #fff;
+				text-align: center;
+				margin: 15px auto 4;
+				width: 70px;
+				background-color: rgba(0, 0, 0, 0.4);
+				border-radius: 12px;
+				font-size: 16px;
+			}
+
+			.mui-preview-image {
+				display: none;
+				-webkit-animation-duration: 0.5s;
+				animation-duration: 0.5s;
+				-webkit-animation-fill-mode: both;
+				animation-fill-mode: both;
+			}
+
+			.mui-preview-image.mui-preview-in {
+				-webkit-animation-name: fadeIn;
+				animation-name: fadeIn;
+			}
+
+			.mui-preview-image.mui-preview-out {
+				background: none;
+				-webkit-animation-name: fadeOut;
+				animation-name: fadeOut;
+			}
+
+			.mui-preview-image.mui-preview-out .mui-preview-header,
+			.mui-preview-image.mui-preview-out .mui-preview-footer {
+				display: none;
+			}
+
+			.mui-zoom-scroller {
+				position: absolute;
+				display: -webkit-box;
+				display: -webkit-flex;
+				display: flex;
+				-webkit-box-align: center;
+				-webkit-align-items: center;
+				align-items: center;
+				-webkit-box-pack: center;
+				-webkit-justify-content: center;
+				justify-content: center;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				margin: 0;
+				-webkit-backface-visibility: hidden;
+			}
+
+			.mui-zoom {
+				-webkit-transform-style: preserve-3d;
+				transform-style: preserve-3d;
+			}
+
+			.mui-slider .mui-slider-group .mui-slider-item img {
+				width: auto;
+				height: auto;
+				max-width: 100%;
+				max-height: 100%;
+			}
+
+			.mui-android-4-1 .mui-slider .mui-slider-group .mui-slider-item img {
+				width: 100%;
+			}
+
+			.mui-android-4-1 .mui-slider.mui-preview-image .mui-slider-group .mui-slider-item {
+				display: inline-table;
+			}
+
+			.mui-android-4-1 .mui-slider.mui-preview-image .mui-zoom-scroller img {
+				display: table-cell;
+				vertical-align: middle;
+			}
+
+			.mui-preview-loading {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				top: 0;
+				left: 0;
+				display: none;
+			}
+
+			.mui-preview-loading.mui-active {
+				display: block;
+			}
+
+			.mui-preview-loading .mui-spinner-white {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				margin-left: -25px;
+				margin-top: -25px;
+				height: 50px;
+				width: 50px;
+			}
+
+			.mui-preview-image img.mui-transitioning {
+				-webkit-transition: -webkit-transform 0.5s ease, opacity 0.5s ease;
+				transition: transform 0.5s ease, opacity 0.5s ease;
+			}
+
+			@-webkit-keyframes fadeIn {
+				0% {
+					opacity: 0;
+				}
+
+				100% {
+					opacity: 1;
+				}
+			}
+
+			@keyframes fadeIn {
+				0% {
+					opacity: 0;
+				}
+
+				100% {
+					opacity: 1;
+				}
+			}
+
+			@-webkit-keyframes fadeOut {
+				0% {
+					opacity: 1;
+				}
+
+				100% {
+					opacity: 0;
+				}
+			}
+
+			@keyframes fadeOut {
+				0% {
+					opacity: 1;
+				}
+
+				100% {
+					opacity: 0;
+				}
+			}
+
+			p img {
+				max-width: 100%!important;
+				height: auto;
+			}
+		</style>
+
+	</head>
+
+	<body>
+		<div class="mui-content">
+			<div class="mui-content-padded">
+				<p><h5 style="font-size:15px">基于人工智能的风电场视频巡检系统</h5></p>
+				<p style="width:100%;text-align:right">2018-01-19解决方案与产品</p>
+
+				<p><h5>概述</h5></p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;基于人工智能的风电场视频巡检系统采用升压站、风机摄像头采集视频图像，通过人工智能识别、视频轮巡、多视频拼接的方式进行视频就地分析，减轻集控视频处理压力，分析结果远距离传输到上一级集控中心供设备运维人员决策使用。同时区域检修中心通过WEB浏览的方式对场内视频巡检系统进行访问操作。<br>
+                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;风电场视频巡检系统可以代替人工巡检传统作业模式，实现风电场巡检的规范化和智能化，保证设备长期高效稳定运行。
+				</p>
+				
+				<p><h5>系统架构</h5></p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;风电场视频巡检系统子系统综合利用了视频、人工智能、图像识别等先进技术，系统将风机和升压站的视频集中整合，设备主要包含风电场、升压站安装的摄像头、网络存储、连接、安防设备等。风电场视频巡检系统结构如图所示：
+				</p>
+				<p>
+				 <img src="./images/fourth/image001.png" style="max-width:100%" data-preview-src="" data-preview-group="1" />	
+				</p>
+				<p style="text-align:center;width:100%">图1：风电场视频巡检系统结构图</p>
+			
+				<p><h5>主要功能</h5></p>
+			    <p>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.实时在线图像识别：系统可以对设备及运行环境进行实时监控，并对升压站变压器漏油、引下线跌落、异物缠绕、油位异常、故障指示灯等设备异常进行主动识别，推送异常图片给运维人员，做到无人值守的升压站设备异常早发现、早知道。<br>			
+				</p>
+				<p>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.红外热成像测温预警：对变压器、母线、互感器等设备主导流部位、引线夹进行的红外热成像实时监测，并与同组其他相别的监测数据进行对比分析，对异常状态及时预告警，生成分析报告推送至设备运维人员<br>			
+				</p>
+				<p>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.智能设备巡检：按照人工巡检路线可定时将顺序联动的摄像头的视频重新组合，形成整体设备视频录像，可模拟人工定时巡检、特殊巡检等巡检方式，巡检结果以报表及录像的方式呈现给用户。<br>			
+				</p>
+				<p>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.智能安防巡检：可定时对升压站、风机设备运行环境进行巡检，系统可以实时监测非法入侵自动报警。对移动对象自动跟踪、抓拍、可自动报警。<br>			
+				</p>
+				<p>
+				 <img src="./images/fourth/image003.png" style="max-width:100%" data-preview-src="" data-preview-group="1" />	
+				</p>
+				<p style="width:100%;text-align: center;font-size:12px">图2：油位智能识别&nbsp;&nbsp;图3：红外热成像测温&nbsp;&nbsp;图4：巡检报表
+				</p>
+				<br>
+				<p><h5>解决运维问题</h5></p>
+			    <p>
+			     1.对无人值守升压站、风发电场设备自动巡检，代替人工，节约人力物力；
+				</p>
+				<p>2.减少运维人员监盘压力，设备异常自动识别，自动上报；</p>
+				<p>3.针对设备实时巡检，最大限度减少漏检、错检，提高巡检作业的质量和效率。</p>
+				<p>4.提供巡检报表及整体巡检录像，减少事务性工作；</p>
+				<p>5.红外在线实时测温代替人工测温枪测温，解决人工测温实时性差问题。</p>
+				<p>6.相比机器人巡检不受路线和天气充电等问题影响，实用性强。</p>
+				
+				<h4 style="text-align:center;color:royalblue">					
+					★创新铸就四方，梦想点亮未来★<br><br>
+					★Innovation Lights Our Future★ 
+				</h4>
+				<br>
+				<p style="text-align:center;font-weight:bold">
+				四方股份为您提供优质的解决方案
+				</p>	
+				<p style="text-align:center;font-weight:bold">
+				如有任何问题，请与我们联系<br>	
+				邮箱：shijianhua@sf-auto.com<br>电话：18515512819/010-82182205
+				</p>
+				<p><h5>封页摘要:</h5></p>
+				<p>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;基于人工智能的风电场视频巡检系统通过人工智能识别、视频轮巡、多视频拼接等技术对风电场及升压站现场采集视频进行处理分析，分析结果上传到上一级调度供运维人员决策使用。可代替人工巡检传统作业模式，解决无人值守风电场设备及安防巡检问题。	
+				</p>
+			</div>
+		</div>
+	</body>
+	<script src="./js/mui.min.js"></script>
+	<script src="./js/mui.zoom.js"></script>
+	<script src="./js/mui.previewimage.js"></script>
+	<script>
+		mui.previewImage();
+	</script>
+
+</html>

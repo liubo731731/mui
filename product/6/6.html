@@ -1,0 +1,345 @@
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>宽频振荡监测主站系统(WAMS 2.0)</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta http-equiv="Expires" content="0">
+		<meta http-equiv="Pragma" content="no-cache">
+		<meta http-equiv="Cache-control" content="no-cache">
+		<meta http-equiv="Cache" content="no-cache">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="./css/mui.min.css">
+		<!--App自定义的css-->
+		<style type="text/css">
+			p {
+				color: black;
+			}
+
+			h5 {
+				font-size: 14px;
+				font-weight: bold;
+				color: black;
+			}
+
+			.mui-preview-image.mui-fullscreen {
+				position: fixed;
+				z-index: 20;
+				background-color: #000;
+			}
+
+			.mui-preview-header,
+			.mui-preview-footer {
+				position: absolute;
+				width: 100%;
+				left: 0;
+				z-index: 10;
+			}
+
+			.mui-preview-header {
+				height: 44px;
+				top: 0;
+			}
+
+			.mui-preview-footer {
+				height: 50px;
+				bottom: 0px;
+			}
+
+			.mui-preview-header .mui-preview-indicator {
+				display: block;
+				line-height: 25px;
+				color: #fff;
+				text-align: center;
+				margin: 15px auto 4;
+				width: 70px;
+				background-color: rgba(0, 0, 0, 0.4);
+				border-radius: 12px;
+				font-size: 16px;
+			}
+
+			.mui-preview-image {
+				display: none;
+				-webkit-animation-duration: 0.5s;
+				animation-duration: 0.5s;
+				-webkit-animation-fill-mode: both;
+				animation-fill-mode: both;
+			}
+
+			.mui-preview-image.mui-preview-in {
+				-webkit-animation-name: fadeIn;
+				animation-name: fadeIn;
+			}
+
+			.mui-preview-image.mui-preview-out {
+				background: none;
+				-webkit-animation-name: fadeOut;
+				animation-name: fadeOut;
+			}
+
+			.mui-preview-image.mui-preview-out .mui-preview-header,
+			.mui-preview-image.mui-preview-out .mui-preview-footer {
+				display: none;
+			}
+
+			.mui-zoom-scroller {
+				position: absolute;
+				display: -webkit-box;
+				display: -webkit-flex;
+				display: flex;
+				-webkit-box-align: center;
+				-webkit-align-items: center;
+				align-items: center;
+				-webkit-box-pack: center;
+				-webkit-justify-content: center;
+				justify-content: center;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				margin: 0;
+				-webkit-backface-visibility: hidden;
+			}
+
+			.mui-zoom {
+				-webkit-transform-style: preserve-3d;
+				transform-style: preserve-3d;
+			}
+
+			.mui-slider .mui-slider-group .mui-slider-item img {
+				width: auto;
+				height: auto;
+				max-width: 100%;
+				max-height: 100%;
+			}
+
+			.mui-android-4-1 .mui-slider .mui-slider-group .mui-slider-item img {
+				width: 100%;
+			}
+
+			.mui-android-4-1 .mui-slider.mui-preview-image .mui-slider-group .mui-slider-item {
+				display: inline-table;
+			}
+
+			.mui-android-4-1 .mui-slider.mui-preview-image .mui-zoom-scroller img {
+				display: table-cell;
+				vertical-align: middle;
+			}
+
+			.mui-preview-loading {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				top: 0;
+				left: 0;
+				display: none;
+			}
+
+			.mui-preview-loading.mui-active {
+				display: block;
+			}
+
+			.mui-preview-loading .mui-spinner-white {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				margin-left: -25px;
+				margin-top: -25px;
+				height: 50px;
+				width: 50px;
+			}
+
+			.mui-preview-image img.mui-transitioning {
+				-webkit-transition: -webkit-transform 0.5s ease, opacity 0.5s ease;
+				transition: transform 0.5s ease, opacity 0.5s ease;
+			}
+
+			@-webkit-keyframes fadeIn {
+				0% {
+					opacity: 0;
+				}
+
+				100% {
+					opacity: 1;
+				}
+			}
+
+			@keyframes fadeIn {
+				0% {
+					opacity: 0;
+				}
+
+				100% {
+					opacity: 1;
+				}
+			}
+
+			@-webkit-keyframes fadeOut {
+				0% {
+					opacity: 1;
+				}
+
+				100% {
+					opacity: 0;
+				}
+			}
+
+			@keyframes fadeOut {
+				0% {
+					opacity: 1;
+				}
+
+				100% {
+					opacity: 0;
+				}
+			}
+
+			p img {
+				max-width: 100% !important;
+				height: auto;
+			}
+		</style>
+
+	</head>
+
+	<body>
+		<div class="mui-content">
+			<div class="mui-content-padded">
+				<p style="width:100%;text-align:center">
+					<h5 style="font-size:15px;width:100%;text-align: center;">宽频振荡监测主站系统(WAMS 2.0)</h5>
+				</p>
+				<p style="width:100%;text-align:right">2019年3月19日</p>
+				<p>
+					<h5>概述</h5>
+				</p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;电力系统实时动态监测系统（WAMS）适用于广域电网、区域电网运行机构对电网运行动态过程的监视与分析。经过近20年的发展，中国已经建成世界规模最大的WAMS系统，已有接近5000个厂站安装了PMU装置，在支撑广域电网安全稳定运行方面发挥了巨大作用。</p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;为适应风电场与光伏电站大规模并网、电能大范围输送、可再生能源占比越来越高的中国电网发展趋势，支撑电网调控中心应对特高压交直流混联电网的复杂特性，四方公司总结近20年的产品开发、技术研究与产品运维的经验，推出电网宽频振荡监测系统（WAMS
+					2.0）。
+				</p>
+
+				<p>
+					<h5>系统架构</h5>
+				</p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					电力系统宽频振荡监测系统由位于发电厂、变电站、新能源厂站的新型同步相量测量装置和位于多级调控中心的监测系统主站构成。
+				</p>
+				<p>
+					<img src="./images/6-5/image002.png" style="max-width:100%;width:100%" data-preview-src="" data-preview-group="1" />
+				</p>
+				<p style="width:100%;text-align:center">图1电力系统宽频振荡监测系统架构图</p>
+				<br>
+				<p>
+					<h5>主要功能</h5>
+				</p>
+				<p>
+					<h5>1)振荡模式在线提取</h5>
+				</p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;计算功率波动最强机组、线路的主导振荡模式，提取相邻区域厂站注入功率的振荡模式，按照相位进行在线分群，结合电网拓扑关系辅助确定扰动源。</p>
+				<p>
+					<img src="./images/6-5/image003.png" style="max-width:100%;width:100%" data-preview-src="" data-preview-group="1" />
+				</p>
+				<p style="width:100%;text-align:center">（2-1）节点振荡模态筛选</p>
+				<p>
+					<img src="./images/6-5/image005.png" style="max-width:100%;width:100%" data-preview-src="" data-preview-group="1" />
+				</p>
+				<p style="width:100%;text-align:center">（2-2）基于振荡模态在线分群</p>
+
+				<p>
+					<img src="./images/6-5/image007.png" style="max-width:100%;width:100%" data-preview-src="" data-preview-group="1" />
+				</p>
+				<p style="width:100%;text-align:center">（2-3）辅助振荡源定位</p>
+
+
+				<p>
+					<h5>2)基于暂态能量法的强迫振荡源定位</h5>
+				</p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;根据主导振荡模式频率，提取机组出力、厂站注入功率、线路功率的主导振荡曲线，进行暂态能量积分，通过对节点注入暂态能量的积分曲线，结合网络拓扑关系，确定振荡源。</p>
+				<p style="width:100%;text-align:center">
+					<img src="./images/6-5/image009.png" style="max-width:100%;width:100%" data-preview-src="" data-preview-group="1" />
+				</p>
+				<p style="width:100%;text-align:center">（3-1）振荡能量流出 </p>
+
+
+				<p style="width:100%;text-align:center">
+					<img src="./images/6-5/image011.png" style="max-width:100%;width:100%" data-preview-src="" data-preview-group="1" />
+				</p>
+				<p style="width:100%;text-align:center">（3-2）振荡能量流入</p>
+
+
+				<p style="width:100%;text-align:center">
+					<img src="./images/6-5/image013.png" style="max-width:100%;width:100%" data-preview-src="" data-preview-group="1" />
+				</p>
+				<p style="width:100%;text-align:center">（3-3）振荡能量积分曲线</p>
+
+
+				<p style="width:100%;text-align:center">
+					<img src="./images/6-5/image015.png" style="max-width:100%;width:100%" data-preview-src="" data-preview-group="1" />
+				</p>
+				<p style="width:100%;text-align:center">（3-4）振荡源定位</p>
+
+
+
+				<p>
+					<h5>3)宽频振荡在线监测</h5>
+				</p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;对振荡最直观的展示效果是对输电线路进行振荡功率的渲染，在对监视频段内可能出现的超低频振荡、低频振荡（区间）、低频振荡（局部）、中高频振荡和次超同步振荡事件，通过振荡类型按钮进行目标振荡模态的切换，在地理接线图上进行振荡功率传输路径的渲染。</p>
+
+				<p>
+					<img src="./images/6-5/image017.png" style="max-width:100%;width:100%" data-preview-src="" data-preview-group="1" />
+				</p>
+				<p style="width:100%;text-align:center">（4-1）超低频振荡模态</p>
+				<p>
+					<img src="./images/6-5/image019.png" style="max-width:100%;width:100%" data-preview-src="" data-preview-group="1" />
+				</p>
+				<p style="width:100%;text-align:center">（4-2）区间低频振荡模态</p>
+
+
+				<p>
+					<h5>4)时序相关的多维展示</h5>
+				</p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					基于时间驱动与拓扑关系的一体化监视与振荡可视化工具以地理接线图、关键数据曲线、实时告警窗为主要元素，结合应用分析结果组合：断面潮流、全网相角差、实时振荡模态、振荡源定位、电压稳定裕度指标等，构成可视化主题画面。其中曲线（以频率为主）用于表现被观测电网的关键厂站在时域的变化趋势，地理接线图上则通过等高线渲染、箭头、着色线段等方式，表现被观测电网在当前时刻运行态势在空间的分布情况。
+				</p>
+				<p style="width:100%;text-align:center">
+					<img src="./images/6-5/image021.png" style="max-width:100%;width:100%" data-preview-src="" data-preview-group="1" />
+				</p>
+				<p style="width:100%;text-align:center">图5 基于时间驱动的一体化监视与振荡可视化工具</p>
+
+				<p style="width:100%;text-align:center">
+					<img src="./images/6-5/image023.png" style="max-width:100%;width:100%" data-preview-src="" data-preview-group="1" />
+				</p>
+				<p style="width:100%;text-align:center">图6 故障潮流转移监视模式</p>
+
+
+				<p>
+					<h5>系统特点与优势</h5>
+				</p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					与WAMS系统现状相比，具有如下关键特征与优势。
+				</p>
+				<p>
+					<img src="./images/6-5/image025.png" style="max-width:100%;width:100%" data-preview-src="" data-preview-group="1" />
+				</p>
+				<p style="width:100%;text-align:center">图7 关键技术特征与优势</p>
+				
+				<ul style="font-size:14px">
+					<li>采用弹性架构，支持调控中心独立部署，支持分层分级调控中心协同部署；</li>
+					<li>采用复合振荡源定位算法，低频振荡监视与强迫振荡源定位结果更准确可靠；</li>
+					<li>支持安全Ⅰ区、Ⅲ区镜像部署，具备良好的应用扩展机制；</li>
+					<li>时序相关的多维信息展示机制，提供更直观、更便捷、更丰富的可视化效果，有效进行电网运行宽频振荡模式的追踪与监测。</li>
+				</ul>
+			</div>
+		</div>
+	</body>
+	<script src="./js/mui.min.js"></script>
+	<script src="./js/mui.zoom.js"></script>
+	<script src="./js/mui.previewimage.js"></script>
+	<script>
+		mui.previewImage();
+	</script>
+
+</html>

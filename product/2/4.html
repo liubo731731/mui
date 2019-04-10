@@ -1,0 +1,299 @@
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>分散式风电一体化控制器与紧凑型开关站</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta http-equiv="Expires" content="0">
+		<meta http-equiv="Pragma" content="no-cache">
+		<meta http-equiv="Cache-control" content="no-cache">
+		<meta http-equiv="Cache" content="no-cache">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="./css/mui.min.css">
+		<!--App自定义的css-->
+		<style type="text/css">
+			p{
+				color:black;
+			}
+			h5{
+				font-size:14px;	
+				font-weight: bold;
+				color:black;
+			}
+			
+			.mui-preview-image.mui-fullscreen {
+				position: fixed;
+				z-index: 20;
+				background-color: #000;
+			}
+
+			.mui-preview-header,
+			.mui-preview-footer {
+				position: absolute;
+				width: 100%;
+				left: 0;
+				z-index: 10;
+			}
+
+			.mui-preview-header {
+				height: 44px;
+				top: 0;
+			}
+
+			.mui-preview-footer {
+				height: 50px;
+				bottom: 0px;
+			}
+
+			.mui-preview-header .mui-preview-indicator {
+				display: block;
+				line-height: 25px;
+				color: #fff;
+				text-align: center;
+				margin: 15px auto 4;
+				width: 70px;
+				background-color: rgba(0, 0, 0, 0.4);
+				border-radius: 12px;
+				font-size: 16px;
+			}
+
+			.mui-preview-image {
+				display: none;
+				-webkit-animation-duration: 0.5s;
+				animation-duration: 0.5s;
+				-webkit-animation-fill-mode: both;
+				animation-fill-mode: both;
+			}
+
+			.mui-preview-image.mui-preview-in {
+				-webkit-animation-name: fadeIn;
+				animation-name: fadeIn;
+			}
+
+			.mui-preview-image.mui-preview-out {
+				background: none;
+				-webkit-animation-name: fadeOut;
+				animation-name: fadeOut;
+			}
+
+			.mui-preview-image.mui-preview-out .mui-preview-header,
+			.mui-preview-image.mui-preview-out .mui-preview-footer {
+				display: none;
+			}
+
+			.mui-zoom-scroller {
+				position: absolute;
+				display: -webkit-box;
+				display: -webkit-flex;
+				display: flex;
+				-webkit-box-align: center;
+				-webkit-align-items: center;
+				align-items: center;
+				-webkit-box-pack: center;
+				-webkit-justify-content: center;
+				justify-content: center;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				margin: 0;
+				-webkit-backface-visibility: hidden;
+			}
+
+			.mui-zoom {
+				-webkit-transform-style: preserve-3d;
+				transform-style: preserve-3d;
+			}
+
+			.mui-slider .mui-slider-group .mui-slider-item img {
+				width: auto;
+				height: auto;
+				max-width: 100%;
+				max-height: 100%;
+			}
+
+			.mui-android-4-1 .mui-slider .mui-slider-group .mui-slider-item img {
+				width: 100%;
+			}
+
+			.mui-android-4-1 .mui-slider.mui-preview-image .mui-slider-group .mui-slider-item {
+				display: inline-table;
+			}
+
+			.mui-android-4-1 .mui-slider.mui-preview-image .mui-zoom-scroller img {
+				display: table-cell;
+				vertical-align: middle;
+			}
+
+			.mui-preview-loading {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				top: 0;
+				left: 0;
+				display: none;
+			}
+
+			.mui-preview-loading.mui-active {
+				display: block;
+			}
+
+			.mui-preview-loading .mui-spinner-white {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				margin-left: -25px;
+				margin-top: -25px;
+				height: 50px;
+				width: 50px;
+			}
+
+			.mui-preview-image img.mui-transitioning {
+				-webkit-transition: -webkit-transform 0.5s ease, opacity 0.5s ease;
+				transition: transform 0.5s ease, opacity 0.5s ease;
+			}
+
+			@-webkit-keyframes fadeIn {
+				0% {
+					opacity: 0;
+				}
+
+				100% {
+					opacity: 1;
+				}
+			}
+
+			@keyframes fadeIn {
+				0% {
+					opacity: 0;
+				}
+
+				100% {
+					opacity: 1;
+				}
+			}
+
+			@-webkit-keyframes fadeOut {
+				0% {
+					opacity: 1;
+				}
+
+				100% {
+					opacity: 0;
+				}
+			}
+
+			@keyframes fadeOut {
+				0% {
+					opacity: 1;
+				}
+
+				100% {
+					opacity: 0;
+				}
+			}
+
+			p img {
+				max-width: 100%!important;
+				height: auto;
+			}
+		</style>
+
+	</head>
+
+	<body>
+		<div class="mui-content">
+			<div class="mui-content-padded">
+				<h5 style="font-size:15px">分散式风电一体化控制器与紧凑型开关站解决方案</h5>
+				<br>
+
+				<h5 >分散式风电特点</h5>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;分散式风电是指，位于负荷中心附近，不以大规模远距离输送电力为目的，所产生的电力就近接入当地电网进行消纳的风电项目。接入电压等级应为110千伏及以下，并在110千伏及以下电压等级内消纳，不向110千伏的上一级电压等级电网反送电。其作用：
+				</p>
+				<p>
+					1.在化石能源和水资源较为贫瘠的地区，可利用分散式风电补偿负荷突然增长免去扩容输配电设备所产生的费用;<br>
+					2.在负荷集中的周边地区修建分散式风电场，可减小用电压力，推迟电网的扩建，增加政策制定的弹性并缓解资金压力;<br>
+					3.布置在需要提高电能质量的网络末端，同时达到提高电能质量的目的;<br>
+					4.参与调峰调频等辅助服务，拓展风电的利用场景<br>
+				</p>
+				
+				<p><h5>分散式风电核心需求</h5></p>
+				<p>
+					<img src="./images/second/1.png" style="max-width:100%" data-preview-src="" data-preview-group="1" />
+				</p>
+				<p>	
+				<br>	
+				<p><h5>分散式风电解决方案</h5></p>
+			    <p>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;解决方案提供分散式风电电气一体化方案，方案采用模块化、功能集约化、一二次合舱、与风机系统融合设计，实现整站集成、标准设计、数据共享、智能协动<br>			
+				</p>
+				<p>
+				 <img src="./images/second/2.png" style="max-width:100%" data-preview-src="" data-preview-group="1" />	
+				</p>
+				<br>
+				<p><h5>1.分散式风电一体化控制器集成优化</h5></p>
+				<p>
+					<img src="./images/second/4.png" style="max-width:100%" data-preview-src="" data-preview-group="1" />
+				</p>
+				<br>
+				<p><h5>2.紧凑型开关站设计</h5></p>
+				<p>
+					<img src="./images/second/3.png" style="max-width:100%" data-preview-src="" data-preview-group="1" />
+				</p>
+				<br>
+				<p><h5>3.风机融和设计、全面支撑远程监控运维</h5></p>
+				<p>
+					<img src="./images/second/5.png" style="max-width:100%" data-preview-src="" data-preview-group="1" />
+				</p>
+				<br>
+				<p><h5>4.方案收益</h5></p>
+				<p>
+					<img src="./images/second/6.png" style="max-width:100%" data-preview-src="" data-preview-group="1" />
+				</p>
+				<p>
+					<img src="./images/second/7.png" style="max-width:100%" data-preview-src="" data-preview-group="1" />
+				</p>
+				<br>
+				<p><h5>方案主要特点</h5></p>
+				<p>
+					1.标准化：核心模块+各类标准模块组成;<br>
+					2.集成化：每个模块全部以功能为核心多种设备和辅材组成的独立功能体，包括舱体、屏体、设备、布线等等；<br>
+					3.工厂预制化：极大缩短施工周期；<br>
+					4.一体化设计：与风电机组融合设计；<br>
+					5.全生命周期管理：从项目前期支持、设计联络、设备生产采购、厂内联调、现场安装施工、现场试验、组织验收、项目管理、系统的运维、售后服务全链条的管理
+				</p>
+				<p>
+					<img src="./images/second/8.png" style="max-width:100%" data-preview-src="" data-preview-group="1"/>
+				</p>
+				<br>
+				<h4 style="text-align:center;color:royalblue">					
+					★创新铸就四方，梦想点亮未来★<br><br>
+					★Innovation Lights Our Future★ 
+				</h4>
+				<br>
+				<p style="text-align:center;font-weight:bold">
+				四方股份为您提供优质的解决方案
+				</p>	
+				<p style="text-align:center;font-weight:bold">
+				如有任何问题，请与我们联系<br>	
+				邮箱：qianhuadong@sf-auto.com<br>电话：18515512616
+				</p>
+				<p><h5>摘要</h5></p>
+				<p>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;分散式风电电气一体化方案，采用一二次合舱、模块化、功能集约化设计，节约土地、缩短建设周期、节省EPC厂商及业主的投资。	
+				</p>
+			</div>
+		</div>
+	</body>
+	<script src="./js/mui.min.js"></script>
+	<script src="./js/mui.zoom.js"></script>
+	<script src="./js/mui.previewimage.js"></script>
+	<script>
+		mui.previewImage();
+	</script>
+
+</html>

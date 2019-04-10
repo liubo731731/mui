@@ -1,0 +1,289 @@
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>新能源电站快速调频控制系统</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta http-equiv="Expires" content="0">
+		<meta http-equiv="Pragma" content="no-cache">
+		<meta http-equiv="Cache-control" content="no-cache">
+		<meta http-equiv="Cache" content="no-cache">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="./css/mui.min.css">
+		<!--App自定义的css-->
+		<style type="text/css">
+			p{
+				color:black;
+			}
+			h5{
+				font-size:14px;	
+				font-weight: bold;
+				color:black;
+			}
+			
+			.mui-preview-image.mui-fullscreen {
+				position: fixed;
+				z-index: 20;
+				background-color: #000;
+			}
+
+			.mui-preview-header,
+			.mui-preview-footer {
+				position: absolute;
+				width: 100%;
+				left: 0;
+				z-index: 10;
+			}
+
+			.mui-preview-header {
+				height: 44px;
+				top: 0;
+			}
+
+			.mui-preview-footer {
+				height: 50px;
+				bottom: 0px;
+			}
+
+			.mui-preview-header .mui-preview-indicator {
+				display: block;
+				line-height: 25px;
+				color: #fff;
+				text-align: center;
+				margin: 15px auto 4;
+				width: 70px;
+				background-color: rgba(0, 0, 0, 0.4);
+				border-radius: 12px;
+				font-size: 16px;
+			}
+
+			.mui-preview-image {
+				display: none;
+				-webkit-animation-duration: 0.5s;
+				animation-duration: 0.5s;
+				-webkit-animation-fill-mode: both;
+				animation-fill-mode: both;
+			}
+
+			.mui-preview-image.mui-preview-in {
+				-webkit-animation-name: fadeIn;
+				animation-name: fadeIn;
+			}
+
+			.mui-preview-image.mui-preview-out {
+				background: none;
+				-webkit-animation-name: fadeOut;
+				animation-name: fadeOut;
+			}
+
+			.mui-preview-image.mui-preview-out .mui-preview-header,
+			.mui-preview-image.mui-preview-out .mui-preview-footer {
+				display: none;
+			}
+
+			.mui-zoom-scroller {
+				position: absolute;
+				display: -webkit-box;
+				display: -webkit-flex;
+				display: flex;
+				-webkit-box-align: center;
+				-webkit-align-items: center;
+				align-items: center;
+				-webkit-box-pack: center;
+				-webkit-justify-content: center;
+				justify-content: center;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				margin: 0;
+				-webkit-backface-visibility: hidden;
+			}
+
+			.mui-zoom {
+				-webkit-transform-style: preserve-3d;
+				transform-style: preserve-3d;
+			}
+
+			.mui-slider .mui-slider-group .mui-slider-item img {
+				width: auto;
+				height: auto;
+				max-width: 100%;
+				max-height: 100%;
+			}
+
+			.mui-android-4-1 .mui-slider .mui-slider-group .mui-slider-item img {
+				width: 100%;
+			}
+
+			.mui-android-4-1 .mui-slider.mui-preview-image .mui-slider-group .mui-slider-item {
+				display: inline-table;
+			}
+
+			.mui-android-4-1 .mui-slider.mui-preview-image .mui-zoom-scroller img {
+				display: table-cell;
+				vertical-align: middle;
+			}
+
+			.mui-preview-loading {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				top: 0;
+				left: 0;
+				display: none;
+			}
+
+			.mui-preview-loading.mui-active {
+				display: block;
+			}
+
+			.mui-preview-loading .mui-spinner-white {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				margin-left: -25px;
+				margin-top: -25px;
+				height: 50px;
+				width: 50px;
+			}
+
+			.mui-preview-image img.mui-transitioning {
+				-webkit-transition: -webkit-transform 0.5s ease, opacity 0.5s ease;
+				transition: transform 0.5s ease, opacity 0.5s ease;
+			}
+
+			@-webkit-keyframes fadeIn {
+				0% {
+					opacity: 0;
+				}
+
+				100% {
+					opacity: 1;
+				}
+			}
+
+			@keyframes fadeIn {
+				0% {
+					opacity: 0;
+				}
+
+				100% {
+					opacity: 1;
+				}
+			}
+
+			@-webkit-keyframes fadeOut {
+				0% {
+					opacity: 1;
+				}
+
+				100% {
+					opacity: 0;
+				}
+			}
+
+			@keyframes fadeOut {
+				0% {
+					opacity: 1;
+				}
+
+				100% {
+					opacity: 0;
+				}
+			}
+
+			p img {
+				max-width: 100%!important;
+				height: auto;
+			}
+		</style>
+
+	</head>
+
+	<body>
+		<div class="mui-content">
+			<div class="mui-content-padded">
+				<p><h5 style="font-size:15px">新能源电站快速调频控制系统</h5></p>
+				<p style="width:100%;text-align:right">2018-12-05电站事业部</p>
+
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;新能源快速发展和大规模接入电网，挤占具有转动惯量的常规电源发展空间，电网一次调频资源储备下降，抗扰动能力降低，需新能源机组参与大电网调频；为保障电网稳定、提升大电网频率安全水平、提高电网对新能源的消纳能力，四方股份作为西北电力调控分中心组织的宁夏电力调控中心试点中的唯一一家被邀请的二次设备厂家，研发快速调频控制装置，并形成新能源参与电网快速调频响应技术方案。<br>
+				</p>
+				
+				<p><h5>系统简介</h5></p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;基于CSPA-2000/POCS功率优化控制系统，采用嵌入式硬件分层分布式架构的快速控制技术，自主高精度交流插件实时采集并网点的电压、电流，在并网点频率发生扰动时，根据频率死区、调差率、调度AGC设定值等参数按照优化策略给出每台逆变器/风机出力目标，实现并网点频率和发电设备功率的快速调节，提高新能源场站频率电压调节的响应速度与控制精度。
+				</p>
+				<p>
+				  <img src="./images/six/image001.png" style="max-width:100%" data-preview-src="" data-preview-group="1" />	
+				</p>
+			
+				<p><h5>技术特点</h5></p>
+			    <p>
+				1.高精度的频率测量，具备躲避单一短路故障引起的瞬时频率突变的能力<br>
+				2.快速频率测控系统可直接控制光伏逆变器或风机，实现快速频率响应功能<br>
+				3.具备数据监测和录波功能，可实时记录电站并网点信息及一次调频期间被控设备运行状态<br>
+				4.实现快速频率事件记录、查询功能以及快速频率积分电量等相关考核指标的计算分析<br>
+				5.实现电站快速频率响应功能的参数设置、运行监视、数据采集等人机交互功能<br>
+				6.实现光伏/风力电站有功功率、无功/电压的自动控制<br>
+				7.接受并执行调度机构下发的实时调控/计划曲线指令<br>
+                </p>
+				<p><h5>性能指标</h5></p>
+			    <p>
+					1.测频精度指标：≤0.002Hz<br>
+					2.频率采样周期：≤100ms<br>
+					3.与外部通信最小周期：50ms<br>
+					4.快速调频响应死区：±0.06Hz（光伏）、±0.10Hz（风电）<br>
+					5.响应滞后时间thx：≤2s<br>
+					6.响应时间t0.9：≤5s（光伏）、≤12s（风电）<br>
+					7.调节时间ts：≤15s<br>
+					8.调频控制偏差：±1%Pn（光伏）、±2%Pn（风电）<br>
+					9.一次调频控制周期：≤1s<br>
+					10.具备躲故障引起瞬时频率突变能力<br>
+				</p>
+				<p><h5>工程应用</h5></p>
+				<p style="text-align:center;width:100%">宁夏五里坡第二风电场频率阶跃测试结果</p>				
+				<p>
+				  <img src="./images/six/image002.png" style="max-width:100%" data-preview-src="" data-preview-group="1" />	
+				</p>
+				<p>
+				  <img src="./images/six/image003.png" style="max-width:100%" data-preview-src="" data-preview-group="1" />	
+				</p>
+				<p>
+
+				</p>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				<h4 style="text-align:center;color:royalblue">					
+					★创新铸就四方，梦想点亮未来★<br><br>
+					★Innovation Lights Our Future★ 
+				</h4>
+				<br>
+				<p style="text-align:center;font-weight:bold">
+				四方股份为您提供优质的解决方案
+				</p>	
+				<p style="text-align:center;font-weight:bold">
+				如有任何问题，请与我们联系<br>	
+				邮箱：qianhuadong@sf-auto.com<br>电话：18515512616
+				</p>
+			</div>
+		</div>
+	</body>
+	<script src="./js/mui.min.js"></script>
+	<script src="./js/mui.zoom.js"></script>
+	<script src="./js/mui.previewimage.js"></script>
+	<script>
+		mui.previewImage();
+	</script>
+
+</html>

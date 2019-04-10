@@ -1,0 +1,265 @@
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>CSD-347B</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta http-equiv="Expires" content="0">
+		<meta http-equiv="Pragma" content="no-cache">
+		<meta http-equiv="Cache-control" content="no-cache">
+		<meta http-equiv="Cache" content="no-cache">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="./css/mui.min.css">
+		<!--App自定义的css-->
+		<style type="text/css">
+			p {
+				color: black;
+			}
+
+			h5 {
+				font-size: 14px;
+				font-weight: bold;
+				color: black;
+			}
+
+			.mui-preview-image.mui-fullscreen {
+				position: fixed;
+				z-index: 20;
+				background-color: #000;
+			}
+
+			.mui-preview-header,
+			.mui-preview-footer {
+				position: absolute;
+				width: 100%;
+				left: 0;
+				z-index: 10;
+			}
+
+			.mui-preview-header {
+				height: 44px;
+				top: 0;
+			}
+
+			.mui-preview-footer {
+				height: 50px;
+				bottom: 0px;
+			}
+
+			.mui-preview-header .mui-preview-indicator {
+				display: block;
+				line-height: 25px;
+				color: #fff;
+				text-align: center;
+				margin: 15px auto 4;
+				width: 70px;
+				background-color: rgba(0, 0, 0, 0.4);
+				border-radius: 12px;
+				font-size: 16px;
+			}
+
+			.mui-preview-image {
+				display: none;
+				-webkit-animation-duration: 0.5s;
+				animation-duration: 0.5s;
+				-webkit-animation-fill-mode: both;
+				animation-fill-mode: both;
+			}
+
+			.mui-preview-image.mui-preview-in {
+				-webkit-animation-name: fadeIn;
+				animation-name: fadeIn;
+			}
+
+			.mui-preview-image.mui-preview-out {
+				background: none;
+				-webkit-animation-name: fadeOut;
+				animation-name: fadeOut;
+			}
+
+			.mui-preview-image.mui-preview-out .mui-preview-header,
+			.mui-preview-image.mui-preview-out .mui-preview-footer {
+				display: none;
+			}
+
+			.mui-zoom-scroller {
+				position: absolute;
+				display: -webkit-box;
+				display: -webkit-flex;
+				display: flex;
+				-webkit-box-align: center;
+				-webkit-align-items: center;
+				align-items: center;
+				-webkit-box-pack: center;
+				-webkit-justify-content: center;
+				justify-content: center;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				margin: 0;
+				-webkit-backface-visibility: hidden;
+			}
+
+			.mui-zoom {
+				-webkit-transform-style: preserve-3d;
+				transform-style: preserve-3d;
+			}
+
+			.mui-slider .mui-slider-group .mui-slider-item img {
+				width: auto;
+				height: auto;
+				max-width: 100%;
+				max-height: 100%;
+			}
+
+			.mui-android-4-1 .mui-slider .mui-slider-group .mui-slider-item img {
+				width: 100%;
+			}
+
+			.mui-android-4-1 .mui-slider.mui-preview-image .mui-slider-group .mui-slider-item {
+				display: inline-table;
+			}
+
+			.mui-android-4-1 .mui-slider.mui-preview-image .mui-zoom-scroller img {
+				display: table-cell;
+				vertical-align: middle;
+			}
+
+			.mui-preview-loading {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				top: 0;
+				left: 0;
+				display: none;
+			}
+
+			.mui-preview-loading.mui-active {
+				display: block;
+			}
+
+			.mui-preview-loading .mui-spinner-white {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				margin-left: -25px;
+				margin-top: -25px;
+				height: 50px;
+				width: 50px;
+			}
+
+			.mui-preview-image img.mui-transitioning {
+				-webkit-transition: -webkit-transform 0.5s ease, opacity 0.5s ease;
+				transition: transform 0.5s ease, opacity 0.5s ease;
+			}
+
+			@-webkit-keyframes fadeIn {
+				0% {
+					opacity: 0;
+				}
+
+				100% {
+					opacity: 1;
+				}
+			}
+
+			@keyframes fadeIn {
+				0% {
+					opacity: 0;
+				}
+
+				100% {
+					opacity: 1;
+				}
+			}
+
+			@-webkit-keyframes fadeOut {
+				0% {
+					opacity: 1;
+				}
+
+				100% {
+					opacity: 0;
+				}
+			}
+
+			@keyframes fadeOut {
+				0% {
+					opacity: 1;
+				}
+
+				100% {
+					opacity: 0;
+				}
+			}
+
+			p img {
+				max-width: 100% !important;
+				height: auto;
+			}
+		</style>
+
+	</head>
+
+	<body>
+		<div class="mui-content">
+			<div class="mui-content-padded">
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					CSD-347B直流配网控保装置，实现串联输入并联输出型电力电子变压器设备的控制与保护。
+				</p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					装置布置在电力电子变压器设备内部，采集功率模块和装置的数据和信号；通过高性能DSP和FPGA实现电力电子变压器的控制和速断保护；运用可视化逻辑，实现对装置各开关的顺序控制及对外接口的实现。
+				</p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					设备对上通过IEC61850与监控系统、能量管理系统等设备实现数据交互，向下通过IEC60044-8与功率模块控制系统进行数据交互，完成电力电子变压器的控制、保护及故障隔离。
+				</p>
+
+				<p style="text-align:center">
+					<img src="./images/5-3b/image1.jpeg" style="max-width:100%" data-preview-src="" data-preview-group="1" />
+				</p>
+				<br>
+
+				<p>
+					<h5>功能配置</h5>
+				</p>
+				<p style="text-align:center">
+					<img src="./images/5-3b/image2.jpeg" style="max-width:100%" data-preview-src="" data-preview-group="1" />
+				</p>
+
+				<p>
+					<h5>装置主要特点</h5>
+				</p>
+				<p>
+					1) 每台设备最多支持32个功率模块接入，通过定值可设置接入的模块数，满足不同电压等级、功率等级的需求。
+					<br>2) 保护配置完善。单个模块故障不影响装置的运行；装置级故障整机跳机，切断装置与系统的联系，不影响系统运行。
+					<br>3) 设备与模块通过IEC60044-8-FT3协议完成数据交互，数据传输延时固定，便于控制实现。
+					<br>4) 不同工作模式之间可实现无缝转换，提高设备的利用率。
+					<br>5) 支持多台电力电力变压器并联运行，方便扩容。
+					<br>6) 具备两套设备冗余切换功能，单套设备故障时自动切换到另一套设备，减小设备的故障率、提高可靠性。
+
+				</p>
+
+				<p>
+				<h5>装置构成</h5>
+				</p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					装置采用功能模块化设计思想，功能模块标准化。由CPU插件、管理插件、开入插件、开出插件、GOOSE插件、LOGIC插件、模块接口插件、电源插件等构成。CPU主要完成模拟量采集及控制功能实现、支持光B码对时；管理插件主要完成CPU管理及对监控系统通讯；开入插件负载采集开关量信息；开出插件负责输出刀闸控制指令；GOOSE插件主要完成与能量管理系统的数据交互；LOGIC插件主要完成装置开关的顺讯控制、将控制指令输出至开出插件；模块接口插件作为CPU与模块数据的中转站，实现CPU与模块的数据交互。
+				</p>
+				<p style="text-align:center">
+					<img src="./images/5-3b/image3.png" style="max-width:100%" data-preview-src="" data-preview-group="1" />
+				</p>
+			</div>
+		</div>
+	</body>
+	<script src="./js/mui.min.js"></script>
+	<script src="./js/mui.zoom.js"></script>
+	<script src="./js/mui.previewimage.js"></script>
+	<script>
+		mui.previewImage();
+	</script>
+</html>

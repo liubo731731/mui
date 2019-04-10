@@ -1,0 +1,303 @@
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>数字物理混合仿真技术</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta http-equiv="Expires" content="0">
+		<meta http-equiv="Pragma" content="no-cache">
+		<meta http-equiv="Cache-control" content="no-cache">
+		<meta http-equiv="Cache" content="no-cache">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="./css/mui.min.css">
+		<!--App自定义的css-->
+		<style type="text/css">
+			p {
+				color: black;
+			}
+
+			h5 {
+				font-size: 14px;
+				font-weight: bold;
+				color: black;
+			}
+
+			.mui-preview-image.mui-fullscreen {
+				position: fixed;
+				z-index: 20;
+				background-color: #000;
+			}
+
+			.mui-preview-header,
+			.mui-preview-footer {
+				position: absolute;
+				width: 100%;
+				left: 0;
+				z-index: 10;
+			}
+
+			.mui-preview-header {
+				height: 44px;
+				top: 0;
+			}
+
+			.mui-preview-footer {
+				height: 50px;
+				bottom: 0px;
+			}
+
+			.mui-preview-header .mui-preview-indicator {
+				display: block;
+				line-height: 25px;
+				color: #fff;
+				text-align: center;
+				margin: 15px auto 4;
+				width: 70px;
+				background-color: rgba(0, 0, 0, 0.4);
+				border-radius: 12px;
+				font-size: 16px;
+			}
+
+			.mui-preview-image {
+				display: none;
+				-webkit-animation-duration: 0.5s;
+				animation-duration: 0.5s;
+				-webkit-animation-fill-mode: both;
+				animation-fill-mode: both;
+			}
+
+			.mui-preview-image.mui-preview-in {
+				-webkit-animation-name: fadeIn;
+				animation-name: fadeIn;
+			}
+
+			.mui-preview-image.mui-preview-out {
+				background: none;
+				-webkit-animation-name: fadeOut;
+				animation-name: fadeOut;
+			}
+
+			.mui-preview-image.mui-preview-out .mui-preview-header,
+			.mui-preview-image.mui-preview-out .mui-preview-footer {
+				display: none;
+			}
+
+			.mui-zoom-scroller {
+				position: absolute;
+				display: -webkit-box;
+				display: -webkit-flex;
+				display: flex;
+				-webkit-box-align: center;
+				-webkit-align-items: center;
+				align-items: center;
+				-webkit-box-pack: center;
+				-webkit-justify-content: center;
+				justify-content: center;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				margin: 0;
+				-webkit-backface-visibility: hidden;
+			}
+
+			.mui-zoom {
+				-webkit-transform-style: preserve-3d;
+				transform-style: preserve-3d;
+			}
+
+			.mui-slider .mui-slider-group .mui-slider-item img {
+				width: auto;
+				height: auto;
+				max-width: 100%;
+				max-height: 100%;
+			}
+
+			.mui-android-4-1 .mui-slider .mui-slider-group .mui-slider-item img {
+				width: 100%;
+			}
+
+			.mui-android-4-1 .mui-slider.mui-preview-image .mui-slider-group .mui-slider-item {
+				display: inline-table;
+			}
+
+			.mui-android-4-1 .mui-slider.mui-preview-image .mui-zoom-scroller img {
+				display: table-cell;
+				vertical-align: middle;
+			}
+
+			.mui-preview-loading {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				top: 0;
+				left: 0;
+				display: none;
+			}
+
+			.mui-preview-loading.mui-active {
+				display: block;
+			}
+
+			.mui-preview-loading .mui-spinner-white {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				margin-left: -25px;
+				margin-top: -25px;
+				height: 50px;
+				width: 50px;
+			}
+
+			.mui-preview-image img.mui-transitioning {
+				-webkit-transition: -webkit-transform 0.5s ease, opacity 0.5s ease;
+				transition: transform 0.5s ease, opacity 0.5s ease;
+			}
+
+			@-webkit-keyframes fadeIn {
+				0% {
+					opacity: 0;
+				}
+
+				100% {
+					opacity: 1;
+				}
+			}
+
+			@keyframes fadeIn {
+				0% {
+					opacity: 0;
+				}
+
+				100% {
+					opacity: 1;
+				}
+			}
+
+			@-webkit-keyframes fadeOut {
+				0% {
+					opacity: 1;
+				}
+
+				100% {
+					opacity: 0;
+				}
+			}
+
+			@keyframes fadeOut {
+				0% {
+					opacity: 1;
+				}
+
+				100% {
+					opacity: 0;
+				}
+			}
+
+			p img {
+				max-width: 100% !important;
+				height: auto;
+			}
+		</style>
+
+	</head>
+
+	<body>
+		<div class="mui-content">
+			<div class="mui-content-padded">
+				<p style="width:100%;text-align:center">
+					<h5 style="font-size:15px;width:100%;text-align: center;">数字物理混合仿真技术</h5>
+				</p>
+				<p style="width:100%;text-align:right">2019-03-15 仿真事业部</p>
+				<p>
+					<h5>概述</h5>
+				</p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					系统采用了数字化的一次模型软件与真实的二次设备相结合的数字与物理混合真技术，构成了功能更加全面的综合自动化变电站仿真培训系统。综自监控系统、控制、测量、保护及自动装置等采用现场真实的物理设备，而邻近电网、一次设备、其余二次部分设备采用数字模拟仿真，采用电磁暂态技术实现数字电网仿真的真实性、实时性、一致性和可靠性，在正常操作和一次设备发生故障的情况下，仿真时间与物理时间完全一致，提供的电气量波形与现场故障录波器采集的波形一致。可实现对变电站运行及二次回路的操作培训，故障的分析、判断、查找及处理，提高运行及继电保护人员的技能水平。
+				</p>
+
+
+				<p>
+					<h5>网络结构</h5>
+				</p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					本系统采用开放式体系结构，基于国际公认标准的网络环境及分布式客户/服务器体系，系统配置灵活方便，系统软、硬件结构图如下：
+				</p>
+				<p>
+					<img src="./images/6-6/image001.png" style="max-width:100%;width:100%" data-preview-src="" data-preview-group="1" />
+				</p>
+				<br>
+				<p>
+					<h5>系统组成</h5>
+				</p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					系统主要包括：通用仿真支撑系统(Cybersim)、电网动态分析程序(LAP)、户外一次设备仿真软件、室内控制及保护室设备、教员台及培训管理软件、变电站监控系统软件、以及从实时数据库中数据读取及处理接口程序等。
+				</p>
+
+
+				<p>
+					<h5>系统特点</h5>
+				</p>
+				<ul style="font-size:14px">
+					<li>
+						具有电磁暂态实时仿真计算软件
+					</li>
+					<li>
+						提供实时高精度的电流电压信号源
+					</li>
+					<li>
+						系统能实现与真实综自后台监控系统连接
+					</li>
+					<li>
+						提供二次回路故障模拟系统
+					</li>
+					<li>
+						提供真实的继电保护测试平台
+					</li>
+				</ul>
+
+				<p>
+					<h5>工程应用</h5>
+				</p>
+				<p>
+					<img src="./images/6-6/image003.jpg" style="max-width:100%" data-preview-src="" data-preview-group="1" />
+				</p>
+				<p>
+					<img src="./images/6-6/image005.jpg" style="max-width:100%" data-preview-src="" data-preview-group="1" />
+				</p>
+				<p>
+					<img src="./images/6-6/image007.jpg" style="max-width:100%" data-preview-src="" data-preview-group="1" />
+				</p>
+				<p>
+					<img src="./images/6-6/image009.jpg" style="max-width:100%" data-preview-src="" data-preview-group="1" />
+				</p>
+
+				<br>
+				<h4 style="text-align:center;color:royalblue">
+					★创新铸就四方，梦想点亮未来★<br><br>
+					★Innovation Lights Our Future★
+				</h4>
+				<br>
+				<p style="text-align:center;font-weight:bold">
+					四方股份为您提供优质的解决方案
+				</p>
+				<p style="text-align:center;font-weight:bold">
+					如有任何问题，请与我们联系<br>
+					邮箱：guodongxia@sf-auto.com<br>电话：18515513881/010-82181832
+				</p>
+
+			</div>
+		</div>
+	</body>
+	<script src="./js/mui.min.js"></script>
+	<script src="./js/mui.zoom.js"></script>
+	<script src="./js/mui.previewimage.js"></script>
+	<script>
+		mui.previewImage();
+	</script>
+
+</html>

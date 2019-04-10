@@ -1,0 +1,286 @@
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>智能化应用</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta http-equiv="Expires" content="0">
+		<meta http-equiv="Pragma" content="no-cache">
+		<meta http-equiv="Cache-control" content="no-cache">
+		<meta http-equiv="Cache" content="no-cache">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="./css/mui.min.css">
+		<!--App自定义的css-->
+		<style type="text/css">
+			p {
+				color: black;
+			}
+
+			h5 {
+				font-size: 14px;
+				font-weight: bold;
+				color: black;
+			}
+
+			.mui-preview-image.mui-fullscreen {
+				position: fixed;
+				z-index: 20;
+				background-color: #000;
+			}
+
+			.mui-preview-header,
+			.mui-preview-footer {
+				position: absolute;
+				width: 100%;
+				left: 0;
+				z-index: 10;
+			}
+
+			.mui-preview-header {
+				height: 44px;
+				top: 0;
+			}
+
+			.mui-preview-footer {
+				height: 50px;
+				bottom: 0px;
+			}
+
+			.mui-preview-header .mui-preview-indicator {
+				display: block;
+				line-height: 25px;
+				color: #fff;
+				text-align: center;
+				margin: 15px auto 4;
+				width: 70px;
+				background-color: rgba(0, 0, 0, 0.4);
+				border-radius: 12px;
+				font-size: 16px;
+			}
+
+			.mui-preview-image {
+				display: none;
+				-webkit-animation-duration: 0.5s;
+				animation-duration: 0.5s;
+				-webkit-animation-fill-mode: both;
+				animation-fill-mode: both;
+			}
+
+			.mui-preview-image.mui-preview-in {
+				-webkit-animation-name: fadeIn;
+				animation-name: fadeIn;
+			}
+
+			.mui-preview-image.mui-preview-out {
+				background: none;
+				-webkit-animation-name: fadeOut;
+				animation-name: fadeOut;
+			}
+
+			.mui-preview-image.mui-preview-out .mui-preview-header,
+			.mui-preview-image.mui-preview-out .mui-preview-footer {
+				display: none;
+			}
+
+			.mui-zoom-scroller {
+				position: absolute;
+				display: -webkit-box;
+				display: -webkit-flex;
+				display: flex;
+				-webkit-box-align: center;
+				-webkit-align-items: center;
+				align-items: center;
+				-webkit-box-pack: center;
+				-webkit-justify-content: center;
+				justify-content: center;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				margin: 0;
+				-webkit-backface-visibility: hidden;
+			}
+
+			.mui-zoom {
+				-webkit-transform-style: preserve-3d;
+				transform-style: preserve-3d;
+			}
+
+			.mui-slider .mui-slider-group .mui-slider-item img {
+				width: auto;
+				height: auto;
+				max-width: 100%;
+				max-height: 100%;
+			}
+
+			.mui-android-4-1 .mui-slider .mui-slider-group .mui-slider-item img {
+				width: 100%;
+			}
+
+			.mui-android-4-1 .mui-slider.mui-preview-image .mui-slider-group .mui-slider-item {
+				display: inline-table;
+			}
+
+			.mui-android-4-1 .mui-slider.mui-preview-image .mui-zoom-scroller img {
+				display: table-cell;
+				vertical-align: middle;
+			}
+
+			.mui-preview-loading {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				top: 0;
+				left: 0;
+				display: none;
+			}
+
+			.mui-preview-loading.mui-active {
+				display: block;
+			}
+
+			.mui-preview-loading .mui-spinner-white {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				margin-left: -25px;
+				margin-top: -25px;
+				height: 50px;
+				width: 50px;
+			}
+
+			.mui-preview-image img.mui-transitioning {
+				-webkit-transition: -webkit-transform 0.5s ease, opacity 0.5s ease;
+				transition: transform 0.5s ease, opacity 0.5s ease;
+			}
+
+			@-webkit-keyframes fadeIn {
+				0% {
+					opacity: 0;
+				}
+
+				100% {
+					opacity: 1;
+				}
+			}
+
+			@keyframes fadeIn {
+				0% {
+					opacity: 0;
+				}
+
+				100% {
+					opacity: 1;
+				}
+			}
+
+			@-webkit-keyframes fadeOut {
+				0% {
+					opacity: 1;
+				}
+
+				100% {
+					opacity: 0;
+				}
+			}
+
+			@keyframes fadeOut {
+				0% {
+					opacity: 1;
+				}
+
+				100% {
+					opacity: 0;
+				}
+			}
+
+			p img {
+				max-width: 100% !important;
+				height: auto;
+			}
+		</style>
+
+	</head>
+
+	<body>
+		<div class="mui-content">
+			<div class="mui-content-padded">
+				<p style="width:100%;text-align:center">
+					<h5 style="font-size:15px;width:100%;text-align: center;">智能化应用</h5>
+				</p>
+
+				<p>
+					<h5>概述</h5>
+				</p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;为积极响应配合国网公司智能变电站自动化系统完善提升，坚持“可靠性、可用性、可维护性和安全性”的基本技术原则，按照“标准化、网络化、服务化、智能化”的发展方向，满足泛在电力物联网建设需求，在顺序控制、智能告警、自动调试验证、远程监视与管理等方面开展技术探索与研究，实现智慧变电站智能化应用。
+				</p>
+				<p>
+					<h5>顺序控制</h5>
+				</p>
+				<p style="text-align:center">
+					<img src="./images/1-7/image1.png" style="max-width:100%" data-preview-src="" data-preview-group="1" />
+				</p>
+				<ul style="font-size:14px">
+					<li>监控主机支持操作票编辑生成、存储管理、逻辑闭锁、顺序控制功能，实时接收和执行本地及调控机构远方下发的顺序控制指令，完成调票、预演、执行、防误校核及与站内智能五防主机信息交互等功能，并上送执行结果。</li>
+					<li>Ⅰ区数据通信网关机完成顺序控制指令接收、转发及执行结果上送等功能。</li>
+					<li>具有详细的操作和事件记录功能</li>
+				</ul>
+
+				<p>
+					<h5>智能告警</h5>
+				</p>
+				<p style="text-align:center">
+					<img src="./images/1-7/image2.png" style="max-width:100%" data-preview-src="" data-preview-group="1" />
+				</p>
+				<ul style="font-size:14px">
+					<li>建立变电站逻辑模型并进行在线实时分析，实现变电站告警信息的分类分组、告警抑制、告警屏蔽和智能分析</li>
+					<li>自动报告变电站异常并提出故障处理指导意见，也为主站分析决策提供依据</li>
+				</ul>
+
+				<p>
+					<h5>自动调试验证</h5>
+				</p>
+				<p style="text-align:center">
+					<img src="./images/1-7/image3.png" style="max-width:100%" data-preview-src="" data-preview-group="1" />
+				</p>
+				<ul style="font-size:14px">
+					<li>具有仿真模拟手段，完成对自动化设备的模型/配置校验、点表校核、开出传动试验、自动对点等自动调试验证工作。</li>
+					<li>实现DL/T 860通信仿真、测试用例自动生成、信号自动发送、测试结果自动校核等功能</li>
+				</ul>
+
+				<p>
+					<h5>远程监视与管理</h5>
+				</p>
+				<ul style="font-size:14px">
+					<li>支持远程监视与管理服务，通过服务注册、审批、定位和调用等功能，实现变电站自动化设备的应急管理、复位、历史记录调阅、转发表数据查询等运维工作。</li>
+					<li>具有软件版本校核功能，在线采集装置软件版本，并将校核结果上送调控主站</li>
+				</ul>
+				<br>
+				<h4 style="text-align:center;color:royalblue">
+					★创新铸就四方，梦想点亮未来★<br><br>
+					★Innovation Lights Our Future★
+				</h4>
+				<br>
+				<p style="text-align:center;font-weight:bold">
+					四方股份为您提供优质的解决方案
+				</p>
+				<p style="text-align:center;font-weight:bold">
+					如有任何问题，请与我们联系<br>
+					邮箱：fankun@sf-auto.com<br>电话：010 - 62961515 - 1282
+				</p>
+
+			</div>
+		</div>
+	</body>
+	<script src="./js/mui.min.js"></script>
+	<script src="./js/mui.zoom.js"></script>
+	<script src="./js/mui.previewimage.js"></script>
+	<script>
+		mui.previewImage();
+	</script>
+
+</html>
